@@ -1,6 +1,7 @@
 var Zillow = require("node-zillow");
 //Instantiate
 var zwsid = process.env.ZWSID;
+console.log('zwsid: ' + zwsid);
 var zillow = new Zillow(zwsid);
 
 export const getUpdatedPropertyDetails = async (req, res) => {
