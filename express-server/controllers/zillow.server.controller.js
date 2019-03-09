@@ -1,8 +1,7 @@
 var Zillow = require("node-zillow");
 //Instantiate
-// var your-zws-id = process.env.ZWSID
-// var zillow = new Zillow('X1-ZWz1gy3v1sml8r_2f38x', options);
-var zillow = new Zillow("X1-ZWz1gy3v1sml8r_2f38x");
+var zwsid = process.env.ZWSID;
+var zillow = new Zillow(zwsid);
 
 export const getUpdatedPropertyDetails = async (req, res) => {
   let zpid = req.url.split("/")[2];
