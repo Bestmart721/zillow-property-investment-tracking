@@ -18,9 +18,7 @@ export default class GetRegionChildren extends React.Component {
 
     return (
       <div className="todoDetail">
-
         <h2>Get Region Children Detail</h2>
-
         {/*
         {!zillowState.get_zestimate && zillowState.isFetching && (
           <div>
@@ -36,5 +34,5 @@ export default class GetRegionChildren extends React.Component {
         */}
       </div>
     );
-  }
-}
+  };
+};

@@ -5,7 +5,7 @@ export const fetchGetDeepSearchResults = zpid => {
   // Returns a dispatcher function
   // that dispatches an action at later time
   return dispatch => {
-    dispatch(fetchGetDeepSearchResultsRequest())
+    dispatch(fetchGetDeepSearchResultsRequest());
 
     return fetch(apiUrl + 'properties/' + zpid + '/get-deep-search-results')
       .then(response => {
@@ -13,15 +13,15 @@ export const fetchGetDeepSearchResults = zpid => {
           response.json().then(data => {
             dispatch(
               fetchGetDeepSearchResultsSuccess(data.data.response, data.message)
-            )
-          })
+            );
+          });
         } else {
           response.json().then(error => {
-            dispatch(fetchGetDeepSearchResultsFailed(error))
-          })
+            dispatch(fetchGetDeepSearchResultsFailed(error));
+          });
         }
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
   }
 }
 
@@ -29,7 +29,7 @@ export const fetchGetDeepSearchResultsRequest = () => {
   return {
     type: 'FETCH_GET_DEEP_SEARCH_RESULTS_REQUEST'
   }
-}
+};
 
 //Sync action
 export const fetchGetDeepSearchResultsSuccess = (get_zestimate, message) => {
@@ -39,14 +39,14 @@ export const fetchGetDeepSearchResultsSuccess = (get_zestimate, message) => {
     message: message,
     receivedAt: Date.now
   }
-}
+};
 
 export const fetchGetDeepSearchResultsFailed = error => {
   return {
     type: 'FETCH_GET_DEEP_SEARCH_RESULTS_FAILED',
     error
   }
-}
+};
 
 //--------------------------------------------------------------------------------------
 
@@ -54,7 +54,7 @@ export const fetchGetUpdatedPropertyDetails = zpid => {
   // Returns a dispatcher function
   // that dispatches an action at later time
   return dispatch => {
-    dispatch(fetchGetUpdatedPropertyDetailsRequest())
+    dispatch(fetchGetUpdatedPropertyDetailsRequest());
 
     return fetch(
       apiUrl + 'properties/' + zpid + '/get-updated-property-details'
@@ -67,23 +67,23 @@ export const fetchGetUpdatedPropertyDetails = zpid => {
                 data.data.response,
                 data.message
               )
-            )
-          })
+            );
+          });
         } else {
           response.json().then(error => {
-            dispatch(fetchGetUpdatedPropertyDetailsFailed(error))
-          })
+            dispatch(fetchGetUpdatedPropertyDetailsFailed(error));
+          });
         }
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
   }
-}
+};
 
 export const fetchGetUpdatedPropertyDetailsRequest = () => {
   return {
     type: 'FETCH_GET_UPDATED_PROPERTY_DETAILS_REQUEST'
   }
-}
+};
 
 //Sync action
 export const fetchGetUpdatedPropertyDetailsSuccess = (
@@ -96,14 +96,14 @@ export const fetchGetUpdatedPropertyDetailsSuccess = (
     message: message,
     receivedAt: Date.now
   }
-}
+};
 
 export const fetchGetUpdatedPropertyDetailsFailed = error => {
   return {
     type: 'FETCH_GET_UPDATED_PROPERTY_DETAILS_FAILED',
     error
   }
-}
+};
 
 //--------------------------------------------------------------------------------------
 
@@ -111,29 +111,29 @@ export const fetchGetDeepComps = zpid => {
   // Returns a dispatcher function
   // that dispatches an action at later time
   return dispatch => {
-    dispatch(fetchGetDeepCompsRequest())
+    dispatch(fetchGetDeepCompsRequest());
 
     return fetch(apiUrl + 'properties/' + zpid + '/get-deep-comps')
       .then(response => {
         if (response.status === 200) {
           response.json().then(data => {
-            dispatch(fetchGetDeepCompsSuccess(data.data.response, data.message))
-          })
+            dispatch(fetchGetDeepCompsSuccess(data.data.response, data.message));
+          });
         } else {
           response.json().then(error => {
-            dispatch(fetchGetDeepCompsFailed(error))
-          })
+            dispatch(fetchGetDeepCompsFailed(error));
+          });
         }
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
   }
-}
+};
 
 export const fetchGetDeepCompsRequest = () => {
   return {
     type: 'FETCH_GET_DEEP_COMPS_REQUEST'
   }
-}
+};
 
 //Sync action
 export const fetchGetDeepCompsSuccess = (get_zestimate, message) => {
@@ -143,14 +143,14 @@ export const fetchGetDeepCompsSuccess = (get_zestimate, message) => {
     message: message,
     receivedAt: Date.now
   }
-}
+};
 
 export const fetchGetDeepCompsFailed = error => {
   return {
     type: 'FETCH_GET_DEEP_COMPS_FAILED',
     error
   }
-}
+};
 
 //--------------------------------------------------------------------------------------
 
@@ -158,7 +158,7 @@ export const fetchGetRateSummary = zpid => {
   // Returns a dispatcher function
   // that dispatches an action at later time
   return dispatch => {
-    dispatch(fetchGetRateSummaryRequest())
+    dispatch(fetchGetRateSummaryRequest());
 
     return fetch(apiUrl + 'properties/' + zpid + '/get-rate-summary')
       .then(response => {
@@ -166,15 +166,15 @@ export const fetchGetRateSummary = zpid => {
           response.json().then(data => {
             dispatch(
               fetchGetRateSummarySuccess(data.data.response, data.message)
-            )
-          })
+            );
+          });
         } else {
           response.json().then(error => {
-            dispatch(fetchGetRateSummaryFailed(error))
-          })
+            dispatch(fetchGetRateSummaryFailed(error));
+          });
         }
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
   }
 }
 
@@ -182,7 +182,7 @@ export const fetchGetRateSummaryRequest = () => {
   return {
     type: 'FETCH_GET_RATE_SUMMARY_REQUEST'
   }
-}
+};
 
 //Sync action
 export const fetchGetRateSummarySuccess = (get_zestimate, message) => {
@@ -192,14 +192,14 @@ export const fetchGetRateSummarySuccess = (get_zestimate, message) => {
     message: message,
     receivedAt: Date.now
   }
-}
+};
 
 export const fetchGetRateSummaryFailed = error => {
   return {
     type: 'FETCH_GET_RATE_SUMMARY_FAILED',
     error
   }
-}
+};
 
 //--------------------------------------------------------------------------------------
 
@@ -207,7 +207,7 @@ export const fetchGetMonthlyPayments = zpid => {
   // Returns a dispatcher function
   // that dispatches an action at later time
   return dispatch => {
-    dispatch(fetchGetMonthlyPaymentsRequest())
+    dispatch(fetchGetMonthlyPaymentsRequest());
 
     return fetch(apiUrl + 'properties/' + zpid + '/get-monthly-payments')
       .then(response => {
@@ -215,15 +215,15 @@ export const fetchGetMonthlyPayments = zpid => {
           response.json().then(data => {
             dispatch(
               fetchGetMonthlyPaymentsSuccess(data.data.response, data.message)
-            )
-          })
+            );
+          });
         } else {
           response.json().then(error => {
-            dispatch(fetchGetMonthlyPaymentsFailed(error))
-          })
+            dispatch(fetchGetMonthlyPaymentsFailed(error));
+          });
         }
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
   }
 }
 
@@ -231,7 +231,7 @@ export const fetchGetMonthlyPaymentsRequest = () => {
   return {
     type: 'FETCH_GET_MONTHLY_PAYMENTS_REQUEST'
   }
-}
+};
 
 //Sync action
 export const fetchGetMonthlyPaymentsSuccess = (get_zestimate, message) => {
@@ -241,14 +241,14 @@ export const fetchGetMonthlyPaymentsSuccess = (get_zestimate, message) => {
     message: message,
     receivedAt: Date.now
   }
-}
+};
 
 export const fetchGetMonthlyPaymentsFailed = error => {
   return {
     type: 'FETCH_GET_MONTHLY_PAYMENTS_FAILED',
     error
   }
-}
+};
 
 //--------------------------------------------------------------------------------------
 
@@ -256,7 +256,7 @@ export const fetchGetDemographics = zpid => {
   // Returns a dispatcher function
   // that dispatches an action at later time
   return dispatch => {
-    dispatch(fetchGetDemographicsRequest())
+    dispatch(fetchGetDemographicsRequest());
 
     return fetch(apiUrl + 'properties/' + zpid + '/get-demographics')
       .then(response => {
@@ -264,23 +264,23 @@ export const fetchGetDemographics = zpid => {
           response.json().then(data => {
             dispatch(
               fetchGetDemographicsSuccess(data.data.response, data.message)
-            )
-          })
+            );
+          });
         } else {
           response.json().then(error => {
-            dispatch(fetchGetDemographicsFailed(error))
-          })
+            dispatch(fetchGetDemographicsFailed(error));
+          });
         }
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
   }
-}
+};
 
 export const fetchGetDemographicsRequest = () => {
   return {
     type: 'FETCH_GET_DEMOGRAPHICS_REQUEST'
   }
-}
+};
 
 //Sync action
 export const fetchGetDemographicsSuccess = (get_zestimate, message) => {
@@ -290,14 +290,14 @@ export const fetchGetDemographicsSuccess = (get_zestimate, message) => {
     message: message,
     receivedAt: Date.now
   }
-}
+};
 
 export const fetchGetDemographicsFailed = error => {
   return {
     type: 'FETCH_GET_DEMOGRAPHICS_FAILED',
     error
   }
-}
+};
 
 //--------------------------------------------------------------------------------------
 
@@ -305,7 +305,7 @@ export const fetchGetRegionChildren = zpid => {
   // Returns a dispatcher function
   // that dispatches an action at later time
   return dispatch => {
-    dispatch(fetchGetRegionChildrenRequest())
+    dispatch(fetchGetRegionChildrenRequest());
 
     return fetch(apiUrl + 'properties/' + zpid + '/get-region-children')
       .then(response => {
@@ -313,15 +313,15 @@ export const fetchGetRegionChildren = zpid => {
           response.json().then(data => {
             dispatch(
               fetchGetRegionChildrenSuccess(data.data.response, data.message)
-            )
-          })
+            );
+          });
         } else {
           response.json().then(error => {
-            dispatch(fetchGetRegionChildrenFailed(error))
-          })
+            dispatch(fetchGetRegionChildrenFailed(error));
+          });
         }
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
   }
 }
 
@@ -329,7 +329,7 @@ export const fetchGetRegionChildrenRequest = () => {
   return {
     type: 'FETCH_GET_REGION_CHILDREN_REQUEST'
   }
-}
+};
 
 //Sync action
 export const fetchGetRegionChildrenSuccess = (get_zestimate, message) => {
@@ -339,14 +339,14 @@ export const fetchGetRegionChildrenSuccess = (get_zestimate, message) => {
     message: message,
     receivedAt: Date.now
   }
-}
+};
 
 export const fetchGetRegionChildrenFailed = error => {
   return {
     type: 'FETCH_GET_REGION_CHILDREN_FAILED',
     error
   }
-}
+};
 
 //--------------------------------------------------------------------------------------
 
@@ -354,7 +354,7 @@ export const fetchGetRegionChart = zpid => {
   // Returns a dispatcher function
   // that dispatches an action at later time
   return dispatch => {
-    dispatch(fetchGetRegionChartRequest())
+    dispatch(fetchGetRegionChartRequest());
 
     return fetch(apiUrl + 'properties/' + zpid + '/get-region-chart')
       .then(response => {
@@ -362,15 +362,15 @@ export const fetchGetRegionChart = zpid => {
           response.json().then(data => {
             dispatch(
               fetchGetRegionChartSuccess(data.data.response, data.message)
-            )
-          })
+            );
+          });
         } else {
           response.json().then(error => {
-            dispatch(fetchGetRegionChartFailed(error))
-          })
+            dispatch(fetchGetRegionChartFailed(error));
+          });
         }
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
   }
 }
 
@@ -378,7 +378,7 @@ export const fetchGetRegionChartRequest = () => {
   return {
     type: 'FETCH_GET_REGION_CHART_REQUEST'
   }
-}
+};
 
 //Sync action
 export const fetchGetRegionChartSuccess = (get_zestimate, message) => {
@@ -388,14 +388,14 @@ export const fetchGetRegionChartSuccess = (get_zestimate, message) => {
     message: message,
     receivedAt: Date.now
   }
-}
+};
 
 export const fetchGetRegionChartFailed = error => {
   return {
     type: 'FETCH_GET_REGION_CHART_FAILED',
     error
   }
-}
+};
 
 //--------------------------------------------------------------------------------------
 
@@ -403,7 +403,7 @@ export const fetchGetSearchResults = zpid => {
   // Returns a dispatcher function
   // that dispatches an action at later time
   return dispatch => {
-    dispatch(fetchGetSearchResultsRequest())
+    dispatch(fetchGetSearchResultsRequest());
 
     return fetch(apiUrl + 'properties/' + zpid + '/get-search-results')
       .then(response => {
@@ -411,23 +411,23 @@ export const fetchGetSearchResults = zpid => {
           response.json().then(data => {
             dispatch(
               fetchGetSearchResultsSuccess(data.data.response, data.message)
-            )
-          })
+            );
+          });
         } else {
           response.json().then(error => {
-            dispatch(fetchGetSearchResultsFailed(error))
-          })
+            dispatch(fetchGetSearchResultsFailed(error));
+          });
         }
       })
       .catch(err => console.log(err))
   }
-}
+};
 
 export const fetchGetSearchResultsRequest = () => {
   return {
     type: 'FETCH_GET_SEARCH_RESULTS_REQUEST'
   }
-}
+};
 
 //Sync action
 export const fetchGetSearchResultsSuccess = (get_zestimate, message) => {
@@ -437,14 +437,14 @@ export const fetchGetSearchResultsSuccess = (get_zestimate, message) => {
     message: message,
     receivedAt: Date.now
   }
-}
+};
 
 export const fetchGetSearchResultsFailed = error => {
   return {
     type: 'FETCH_GET_SEARCH_RESULTS_FAILED',
     error
   }
-}
+};
 
 //--------------------------------------------------------------------------------------
 
@@ -453,7 +453,7 @@ export const fetchGetZestimate = zpid => {
   // Returns a dispatcher function
   // that dispatches an action at later time
   return dispatch => {
-    dispatch(fetchGetZestimateRequest())
+    dispatch(fetchGetZestimateRequest());
 
     /*
     let data = fetch(apiUrl + 'get-zestimate');
@@ -469,23 +469,23 @@ export const fetchGetZestimate = zpid => {
       .then(response => {
         if (response.status === 200) {
           response.json().then(data => {
-            dispatch(fetchGetZestimateSuccess(data.data.response, data.message))
-          })
+            dispatch(fetchGetZestimateSuccess(data.data.response, data.message));
+          });
         } else {
           response.json().then(error => {
-            dispatch(fetchGetZestimateFailed(error))
-          })
+            dispatch(fetchGetZestimateFailed(error));
+          });
         }
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
   }
-}
+};
 
 export const fetchGetZestimateRequest = () => {
   return {
     type: 'FETCH_GET_ZESTIMATE_REQUEST'
   }
-}
+};
 
 //Sync action
 export const fetchGetZestimateSuccess = (get_zestimate, message) => {
@@ -495,14 +495,14 @@ export const fetchGetZestimateSuccess = (get_zestimate, message) => {
     message: message,
     receivedAt: Date.now
   }
-}
+};
 
 export const fetchGetZestimateFailed = error => {
   return {
     type: 'FETCH_GET_ZESTIMATE_FAILED',
     error
   }
-}
+};
 
 //--------------------------------------------------------------------------------------
 
@@ -510,29 +510,29 @@ export const fetchGetChart = zpid => {
   // Returns a dispatcher function
   // that dispatches an action at later time
   return dispatch => {
-    dispatch(fetchGetChartRequest())
+    dispatch(fetchGetChartRequest());
 
     return fetch(apiUrl + 'properties/' + zpid + '/get-chart')
       .then(response => {
         if (response.status === 200) {
           response.json().then(data => {
-            dispatch(fetchGetChartSuccess(data.data.response, data.message))
-          })
+            dispatch(fetchGetChartSuccess(data.data.response, data.message));
+          });
         } else {
           response.json().then(error => {
-            dispatch(fetchGetChartFailed(error))
-          })
+            dispatch(fetchGetChartFailed(error));
+          });
         }
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
   }
-}
+};
 
 export const fetchGetChartRequest = () => {
   return {
     type: 'FETCH_GET_CHART_REQUEST'
   }
-}
+};
 
 //Sync action
 export const fetchGetChartSuccess = (get_zestimate, message) => {
@@ -542,14 +542,14 @@ export const fetchGetChartSuccess = (get_zestimate, message) => {
     message: message,
     receivedAt: Date.now
   }
-}
+};
 
 export const fetchGetChartFailed = error => {
   return {
     type: 'FETCH_GET_CHART_FAILED',
     error
   }
-}
+};
 
 //--------------------------------------------------------------------------------------
 
@@ -557,29 +557,29 @@ export const fetchGetComps = zpid => {
   // Returns a dispatcher function
   // that dispatches an action at later time
   return dispatch => {
-    dispatch(fetchGetCompsRequest())
+    dispatch(fetchGetCompsRequest());
 
     return fetch(apiUrl + 'properties/' + zpid + '/get-comps')
       .then(response => {
         if (response.status === 200) {
           response.json().then(data => {
-            dispatch(fetchGetCompsSuccess(data.data.response, data.message))
-          })
+            dispatch(fetchGetCompsSuccess(data.data.response, data.message));
+          });
         } else {
           response.json().then(error => {
-            dispatch(fetchGetCompsFailed(error))
-          })
+            dispatch(fetchGetCompsFailed(error));
+          });
         }
       })
-      .catch(err => console.log(err))
+      .catch(err => console.log(err));
   }
-}
+};
 
 export const fetchGetCompsRequest = () => {
   return {
     type: 'FETCH_GET_COMPS_REQUEST'
   }
-}
+};
 
 //Sync action
 export const fetchGetCompsSuccess = (get_zestimate, message) => {
@@ -589,11 +589,11 @@ export const fetchGetCompsSuccess = (get_zestimate, message) => {
     message: message,
     receivedAt: Date.now
   }
-}
+};
 
 export const fetchGetCompsFailed = error => {
   return {
     type: 'FETCH_GET_COMPS_FAILED',
     error
   }
-}
+};

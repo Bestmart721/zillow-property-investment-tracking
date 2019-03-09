@@ -1,9 +1,9 @@
-import React from 'react'
-import { Route } from 'react-router-dom'
+import React from 'react';
+import { Route } from 'react-router-dom';
 
 import { Navbar, NavDropdown } from "react-bootstrap";
 
-import Home from '../home'
+import Home from '../home';
 import GetUpdatedPropertyDetails from '../get-updated-property-details';
 import GetDeepComps from '../get-deep-comps';
 /*
@@ -59,6 +59,6 @@ const App = () => (
       </main>
     </div>
   </div>
-)
+);
 
-export default App
+export default App;

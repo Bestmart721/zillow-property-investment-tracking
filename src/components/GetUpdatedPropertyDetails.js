@@ -1,23 +1,25 @@
-import React from 'react'
-import { Table } from 'react-bootstrap'
+import React from 'react';
+import { Table, Container } from 'react-bootstrap';
 
 export default class GetUpdatedPropertyDetails extends React.Component {
-  zpid = ''
+  zpid = '';
 
   constructor(props) {
-    super(props)
-    this.zpid = this.props.location.pathname.split('/')[2]
+    super(props);
+    this.zpid = this.props.location.pathname.split('/')[2];
   }
 
   componentWillMount() {
-    this.props.fetchGetUpdatedPropertyDetails(this.zpid)
+    this.props.fetchGetUpdatedPropertyDetails(this.zpid);
   }
 
   render() {
-    const zillowState = this.props.mappedZillowState
+    const zillowState = this.props.mappedZillowState;
     return (
+      <Container>
       <div className="todoDetail">
-        <h2>Get Updated Property Details</h2>
+        <h1>Updated Property Details</h1>
+        <br />
 
         {!zillowState.get_zestimate && zillowState.isFetching && (
           <div>
@@ -26,7 +28,7 @@ export default class GetUpdatedPropertyDetails extends React.Component {
         )}
         {zillowState.get_zestimate && !zillowState.isFetching && (
           <div>
-            <h2>Property Page View Count</h2>
+            <h3>Property Page View Count</h3>
             <Table striped bordered hover>
               <thead>
                 <tr>
@@ -45,7 +47,7 @@ export default class GetUpdatedPropertyDetails extends React.Component {
             </Table>
 
             <br />
-            <h2>Address</h2>
+            <h3>Address</h3>
             <Table striped bordered hover>
               <thead>
                 <tr>
@@ -66,7 +68,7 @@ export default class GetUpdatedPropertyDetails extends React.Component {
             </Table>
 
             <br />
-            <h2>Links</h2>
+            <h3>Links</h3>
             <ul>
               <li>
                 <a href={zillowState.get_zestimate.links.homeDetails[0]}>
@@ -86,7 +88,7 @@ export default class GetUpdatedPropertyDetails extends React.Component {
             </ul>
 
             <br />
-            <h2>Home Information</h2>
+            <h3>Home Information</h3>
             <Table striped bordered hover>
               <thead>
                 <tr>
@@ -111,7 +113,7 @@ export default class GetUpdatedPropertyDetails extends React.Component {
             </Table>
 
             <br />
-            <h2>Images</h2>
+            <h3>Images</h3>
 
             {/*
             <Card style={{ width: '18rem' }}>
@@ -132,6 +134,7 @@ export default class GetUpdatedPropertyDetails extends React.Component {
           </div>
         )}
       </div>
-    )
-  }
-}
+      </Container>
+    );
+  };
+};

@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
 export default class Property extends React.Component {
-  zpid = ''
+  zpid = '';
 
-  get_updated_property_details = ''
-  get_deep_comps = ''
+  get_updated_property_details = '';
+  get_deep_comps = '';
   /*
   get_deep_search_results = '';
   get_rate_summary = '';
@@ -14,18 +14,18 @@ export default class Property extends React.Component {
   get_region_chart = '';
   get_search_results = '';
   */
-  get_zestimate = ''
-  get_chart = ''
-  get_comps = ''
+  get_zestimate = '';
+  get_chart = '';
+  get_comps = '';
 
   constructor(props) {
-    super(props)
-    this.zpid = this.props.location.pathname.split('/')[2]
+    super(props);
+    this.zpid = this.props.location.pathname.split('/')[2];
 
     this.get_updated_property_details = `/properties/${
       this.zpid
-    }/get-updated-property-details`
-    this.get_deep_comps = `/properties/${this.zpid}/get-deep-comps`
+    }/get-updated-property-details`;
+    this.get_deep_comps = `/properties/${this.zpid}/get-deep-comps`;
     /*
     this.get_deep_search_results = `/properties/${this.zpid}/get-deep-search-results`;
     this.get_rate_summary = `/properties/${this.zpid}/get-rate-summary`;
@@ -35,9 +35,9 @@ export default class Property extends React.Component {
     this.get_region_chart = `/properties/${this.zpid}/get-region-chart`;
     this.get_search_results = `/properties/${this.zpid}/get-search-results`;
     */
-    this.get_zestimate = `/properties/${this.zpid}/get-zestimate`
-    this.get_chart = `/properties/${this.zpid}/get-chart`
-    this.get_comps = `/properties/${this.zpid}/get-comps`
+    this.get_zestimate = `/properties/${this.zpid}/get-zestimate`;
+    this.get_chart = `/properties/${this.zpid}/get-chart`;
+    this.get_comps = `/properties/${this.zpid}/get-comps`;
   }
 
   render() {
@@ -73,6 +73,6 @@ export default class Property extends React.Component {
           </li>
         </ul>
       </div>
-    )
-  }
-}
+    );
+  };
+};

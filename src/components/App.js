@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+
 import "./App.css";
 
 export default class App extends React.Component {
@@ -18,5 +19,5 @@ export default class App extends React.Component {
         </ul>
       </div>
     );
-  }
-}
+  };
+};

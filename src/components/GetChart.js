@@ -1,25 +1,27 @@
-import React from 'react'
-import { Table } from 'react-bootstrap'
+import React from 'react';
+import { Table, Container } from 'react-bootstrap';
+
 
 export default class GetChart extends React.Component {
-  zpid = ''
+  zpid = '';
 
   constructor(props) {
-    super(props)
-    this.zpid = this.props.location.pathname.split('/')[2]
+    super(props);
+    this.zpid = this.props.location.pathname.split('/')[2];
   }
 
   componentWillMount() {
-    this.props.fetchGetChart(this.zpid)
+    this.props.fetchGetChart(this.zpid);
   }
 
   render() {
-    const zillowState = this.props.mappedZillowState
+    const zillowState = this.props.mappedZillowState;
 
     return (
+      <Container>
       <div className="todoDetail">
-        <h2>Get Chart Detail</h2>
-
+        <h1>Chart Info</h1>
+        <br />
         {!zillowState.get_zestimate && zillowState.isFetching && (
           <div>
             <p>Loading Zillow details....</p>
@@ -27,7 +29,7 @@ export default class GetChart extends React.Component {
         )}
         {zillowState.get_zestimate && !zillowState.isFetching && (
           <div>
-            <h2>Chart Details</h2>
+            <h4>Chart Details</h4>
             <Table striped bordered hover>
               <thead>
                 <tr>
@@ -49,6 +51,7 @@ export default class GetChart extends React.Component {
           </div>
         )}
       </div>
-    )
-  }
-}
+      </Container>
+    );
+  };
+};

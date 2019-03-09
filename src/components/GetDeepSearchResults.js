@@ -18,9 +18,7 @@ export default class GetDeepSearchResults extends React.Component {
 
     return (
       <div className="todoDetail">
-
         <h2>Get Deep Search Results Detail</h2>
-
         {/*
         {!zillowState.get_zestimate && zillowState.isFetching && (
           <div>
@@ -36,5 +34,5 @@ export default class GetDeepSearchResults extends React.Component {
         */}
       </div>
     );
-  }
-}
+  };
+};

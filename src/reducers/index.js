@@ -6,4 +6,4 @@ import zillowReducer from './zillowReducer';
 export default combineReducers({
   zillowState:zillowReducer,
   routing
-})
+});

@@ -6,11 +6,11 @@ const mapStateToProps = (state) => {
   return {
     mappedAppState: state.appState
   }
-}
+};
 
 // map actions to props
 const mapDispatchToProps = (dispatch) => {
   return {}
-}
+};
 
 export default connect(mapStateToProps,mapDispatchToProps)(App);

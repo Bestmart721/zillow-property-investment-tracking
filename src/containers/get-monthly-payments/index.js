@@ -8,13 +8,13 @@ const mapStateToProps = (state, ownProps) => {
   return {
     mappedZillowState: state.zillowState
   }
-}
+};
 
 // map actions to props
 const mapDispatchToProps = (dispatch) => {
   return {
     fetchGetMonthlyPayments: (zpid) => dispatch(zillowActions.fetchGetMonthlyPayments(zpid)),
   }
-}
+};
 
 export default connect(mapStateToProps,mapDispatchToProps)(GetMonthlyPayments);

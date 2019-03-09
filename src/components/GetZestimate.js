@@ -1,5 +1,5 @@
 import React from "react";
-import { Table } from 'react-bootstrap';
+import { Table, Container } from 'react-bootstrap';
 
 export default class GetZestimate extends React.Component {
   zpid = '';
@@ -17,9 +17,10 @@ export default class GetZestimate extends React.Component {
     const zillowState = this.props.mappedZillowState;
 
     return (
+      <Container>
       <div className="todoDetail">
 
-        <h2>Get Zestimate Detail</h2>
+        <h1>Zestimate Detail</h1>
         {!zillowState.get_zestimate && zillowState.isFetching && (
           <div>
             <p>Loading Zillow details....</p>
@@ -27,7 +28,7 @@ export default class GetZestimate extends React.Component {
         )}
         {zillowState.get_zestimate && !zillowState.isFetching && (
           <div>
-            <h2>Address</h2>
+            <h5>Address</h5>
             <Table striped bordered hover>
               <thead>
                 <tr>
@@ -48,7 +49,7 @@ export default class GetZestimate extends React.Component {
             </Table>
 
             <br />
-            <h2>Links</h2>
+            <h5>Links</h5>
             <ul>
               <li><a href={zillowState.get_zestimate.links.comparables[0]}>Comps</a></li>
               <li><a href={zillowState.get_zestimate.links.graphsanddata[0]}>Graphs and Data</a></li>
@@ -61,7 +62,7 @@ export default class GetZestimate extends React.Component {
             {/* <h3>{zillowState.get_zestimate.links.homedetails[0]}</h3> */}
 
             <br />
-            <h2>Rent Zestimate</h2>
+            <h5>Rent Zestimate</h5>
             {/*
             <h3>{zillowState.get_zestimate.rentzestimate.amount[0]._}</h3>
             <h3>{zillowState.get_zestimate.rentzestimate.amount[0]['$'].currency}</h3>
@@ -82,16 +83,32 @@ export default class GetZestimate extends React.Component {
               </thead>
               <tbody>
                 <tr>
-                  <td>${zillowState.get_zestimate.rentzestimate.amount[0]._}/mon</td>
+                  <td>
+                    {
+                    (Number(zillowState.get_zestimate.rentzestimate.amount[0]._))
+                    .toLocaleString('en-US', {
+                        style: 'currency',
+                        currency: 'USD',
+                      })
+                    }/mon
+                  </td>
                   <td>{zillowState.get_zestimate.rentzestimate["last-updated"][0]}</td>
-                  <td>{zillowState.get_zestimate.rentzestimate.valueChange[0]._}</td>
+                  <td>
+                    {
+                    (Number(zillowState.get_zestimate.rentzestimate.valueChange[0]._))
+                    .toLocaleString('en-US', {
+                        style: 'currency',
+                        currency: 'USD',
+                      })
+                    }
+                  </td>
                   <td>{zillowState.get_zestimate.rentzestimate.valueChange[0]['$'].duration}</td>
                 </tr>
               </tbody>
             </Table>
 
             <br />
-            <h2>Zestimate</h2>
+            <h5>Zestimate</h5>
             {/*
             <h3>{zillowState.get_zestimate.zestimate.amount[0]._}</h3>
             <h3>{zillowState.get_zestimate.zestimate.amount[0]['$'].currency}</h3>
@@ -116,9 +133,25 @@ export default class GetZestimate extends React.Component {
               </thead>
               <tbody>
                 <tr>
-                  <td>${zillowState.get_zestimate.zestimate.amount[0]._}</td>
+                  <td>
+                    {
+                    (Number(zillowState.get_zestimate.zestimate.amount[0]._))
+                    .toLocaleString('en-US', {
+                        style: 'currency',
+                        currency: 'USD',
+                      })
+                    }
+                  </td>
                   <td>{zillowState.get_zestimate.zestimate["last-updated"][0]}</td>
-                  <td>{zillowState.get_zestimate.zestimate.valueChange[0]._}</td>
+                  <td>
+                    {
+                    (Number(zillowState.get_zestimate.zestimate.valueChange[0]._))
+                    .toLocaleString('en-US', {
+                        style: 'currency',
+                        currency: 'USD',
+                      })
+                    }
+                  </td>
                   <td>{zillowState.get_zestimate.zestimate.valueChange[0]['$'].duration}</td>
                 </tr>
               </tbody>
@@ -128,6 +161,7 @@ export default class GetZestimate extends React.Component {
         )}
 
       </div>
+      </Container>
     );
-  }
-}
+  };
+};

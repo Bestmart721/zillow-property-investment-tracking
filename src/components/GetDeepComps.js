@@ -1,24 +1,25 @@
-import React from 'react'
-import { Table } from 'react-bootstrap'
+import React from 'react';
+import { Table, Container } from 'react-bootstrap';
 
 export default class GetDeepComps extends React.Component {
-  zpid = ''
+  zpid = '';
 
   constructor(props) {
-    super(props)
-    this.zpid = this.props.location.pathname.split('/')[2]
+    super(props);
+    this.zpid = this.props.location.pathname.split('/')[2];
   }
 
   componentWillMount() {
-    this.props.fetchGetDeepComps(this.zpid)
+    this.props.fetchGetDeepComps(this.zpid);
   }
 
   render() {
-    const zillowState = this.props.mappedZillowState
+    const zillowState = this.props.mappedZillowState;
 
     return (
+      <Container>
       <div className="todoDetail">
-        <h2>Get Deep Comps Detail</h2>
+        <h1>Deep Comparables Info</h1>
 
         {!zillowState.get_zestimate && zillowState.isFetching && (
           <div>
@@ -27,7 +28,7 @@ export default class GetDeepComps extends React.Component {
         )}
         {zillowState.get_zestimate && !zillowState.isFetching && (
           <div>
-            <h2>Prinicipal Residence</h2>
+            <h4>Prinicipal Residence</h4>
             <Table striped bordered hover>
               <thead>
                 <tr>
@@ -67,7 +68,7 @@ export default class GetDeepComps extends React.Component {
               </tbody>
             </Table>
 
-            <h2>Home Details</h2>
+            <h5>Home Details</h5>
             <Table striped bordered hover>
               <thead>
                 <tr>
@@ -107,7 +108,7 @@ export default class GetDeepComps extends React.Component {
               </tbody>
             </Table>
 
-            <h2>Tax Assessment</h2>
+            <h5>Tax Assessment</h5>
             <Table striped bordered hover>
               <thead>
                 <tr>
@@ -124,17 +125,19 @@ export default class GetDeepComps extends React.Component {
                     }
                   </td>
                   <td>
-                    $
                     {
-                      zillowState.get_zestimate.properties.principal[0]
-                        .taxAssessment[0]
+                    (Number(zillowState.get_zestimate.properties.principal[0].taxAssessment[0]))
+                    .toLocaleString('en-US', {
+                        style: 'currency',
+                        currency: 'USD',
+                      })
                     }
                   </td>
                 </tr>
               </tbody>
             </Table>
 
-            <h2>Sale Details</h2>
+            <h5>Sale Details</h5>
             <Table striped bordered hover>
               <thead>
                 <tr>
@@ -153,36 +156,45 @@ export default class GetDeepComps extends React.Component {
                     }
                   </td>
                   <td>
-                    $
                     {
-                      zillowState.get_zestimate.properties.principal[0]
-                        .lastSoldPrice[0]._
+                    (Number(zillowState.get_zestimate.properties.principal[0].lastSoldPrice[0]._))
+                    .toLocaleString('en-US', {
+                        style: 'currency',
+                        currency: 'USD',
+                      })
                     }
                   </td>
                   <td>
-                    $
                     {
-                      zillowState.get_zestimate.properties.principal[0]
-                        .zestimate[0].amount[0]._
+                    (Number(zillowState.get_zestimate.properties.principal[0].zestimate[0].amount[0]._))
+                    .toLocaleString('en-US', {
+                        style: 'currency',
+                        currency: 'USD',
+                      })
                     }
                   </td>
                   <td>
-                    $
-                    {Number(
+                    {
+                    (Number(
                       zillowState.get_zestimate.properties.principal[0]
                         .zestimate[0].amount[0]._
                     ) -
                       Number(
                         zillowState.get_zestimate.properties.principal[0]
                           .lastSoldPrice[0]._
-                      )}
+                      ))
+                    .toLocaleString('en-US', {
+                        style: 'currency',
+                        currency: 'USD',
+                      })
+                    }
                   </td>
                 </tr>
               </tbody>
             </Table>
 
             <br />
-            <h2>Links</h2>
+            <h5>Links</h5>
             <ul>
               <li>
                 <a
@@ -223,7 +235,7 @@ export default class GetDeepComps extends React.Component {
             </ul>
 
             <div>
-              <h2>Comparables</h2>
+              <h4>Comparables</h4>
               <Table striped bordered hover>
                 <thead>
                   <tr>
@@ -254,24 +266,32 @@ export default class GetDeepComps extends React.Component {
                         </td>
                         {/* <td>{comp.address[0].city[0]}</td> */}
                         {/*
-                    <td>{comp.address[0].state[0]}</td>
-                    <td>{comp.address[0].zipcode[0]}</td>
-                    */}
-                        <td>${comp.zestimate[0].amount[0]._}</td>
+                        <td>{comp.address[0].state[0]}</td>
+                        <td>{comp.address[0].zipcode[0]}</td>
+                        */}
+                        <td>
+                        {
+                        (Number(comp.zestimate[0].amount[0]._))
+                        .toLocaleString('en-US', {
+                            style: 'currency',
+                            currency: 'USD',
+                          })
+                        }
+                        </td>
                         {/*
-                    <td>{comp.zestimate[0]["last-updated"][0]}</td>
-                    <td>{comp.zestimate[0].valueChange[0]._}</td>
-                    */}
+                        <td>{comp.zestimate[0]["last-updated"][0]}</td>
+                        <td>{comp.zestimate[0].valueChange[0]._}</td>
+                        */}
                         {/* <td>{comp.zestimate[0].valueChange[0]['$'].duration}</td> */}
                         {/*
-                    <td>
-                      <ul>
-                        <li><a href={comp.links[0].homedetails}>Details</a></li>
-                        <li><a href={comp.links[0].mapthishome}>Map</a></li>
-                        <li><a href={comp.links[0].comparables}>comps</a></li>
-                      </ul>
-                    </td>
-                    */}
+                        <td>
+                          <ul>
+                            <li><a href={comp.links[0].homedetails}>Details</a></li>
+                            <li><a href={comp.links[0].mapthishome}>Map</a></li>
+                            <li><a href={comp.links[0].comparables}>comps</a></li>
+                          </ul>
+                        </td>
+                        */}
                       </tr>
                     )
                   )}
@@ -281,6 +301,7 @@ export default class GetDeepComps extends React.Component {
           </div>
         )}
       </div>
-    )
-  }
-}
+      </Container>
+    );
+  };
+};

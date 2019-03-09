@@ -3,7 +3,7 @@ const INITIAL_STATE = {
   isFetching: false,
   error: null,
   successMsg: null
-}
+};
 
 const zillowReducer = (currentState = INITIAL_STATE, action) => {
   switch (action.type) {
@@ -172,6 +172,6 @@ const zillowReducer = (currentState = INITIAL_STATE, action) => {
     default:
       return currentState
   }
-}
+};
 
-export default zillowReducer
+export default zillowReducer;

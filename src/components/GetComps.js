@@ -1,25 +1,26 @@
-import React from 'react'
-import { Table } from 'react-bootstrap'
+import React from 'react';
+import { Table, Container } from 'react-bootstrap';
 
 export default class GetComps extends React.Component {
-  zpid = ''
+  zpid = '';
 
   constructor(props) {
-    super(props)
-    this.zpid = this.props.location.pathname.split('/')[2]
+    super(props);
+    this.zpid = this.props.location.pathname.split('/')[2];
   }
 
   componentWillMount() {
-    this.props.fetchGetComps(this.zpid)
+    this.props.fetchGetComps(this.zpid);
   }
 
   render() {
-    const zillowState = this.props.mappedZillowState
+    const zillowState = this.props.mappedZillowState;
 
     return (
+      <Container>
       <div className="todoDetail">
-        <h2>Get Comps Detail</h2>
-
+        <h1>Comparable Property Info</h1>
+        <br />
         {!zillowState.get_zestimate && zillowState.isFetching && (
           <div>
             <p>Loading Zillow details....</p>
@@ -27,9 +28,9 @@ export default class GetComps extends React.Component {
         )}
         {zillowState.get_zestimate && !zillowState.isFetching && (
           <div>
-            <h2>Prinicipal Residence</h2>
+            <h4>Prinicipal Residence</h4>
 
-            <h2>Address</h2>
+            <h5>Address</h5>
             <Table striped bordered hover>
               <thead>
                 <tr>
@@ -70,7 +71,7 @@ export default class GetComps extends React.Component {
             </Table>
 
             <br />
-            <h2>Links</h2>
+            <h5>Links</h5>
             <ul>
               <li>
                 <a
@@ -111,7 +112,7 @@ export default class GetComps extends React.Component {
             </ul>
 
             <br />
-            <h2>Zestimate</h2>
+            <h5>Zestimate</h5>
             <Table striped bordered hover>
               <thead>
                 <tr>
@@ -124,10 +125,12 @@ export default class GetComps extends React.Component {
               <tbody>
                 <tr>
                   <td>
-                    $
                     {
-                      zillowState.get_zestimate.properties.principal[0]
-                        .zestimate[0].amount[0]._
+                    (Number(zillowState.get_zestimate.properties.principal[0].zestimate[0].amount[0]._))
+                    .toLocaleString('en-US', {
+                        style: 'currency',
+                        currency: 'USD',
+                      })
                     }
                   </td>
                   <td>
@@ -138,8 +141,12 @@ export default class GetComps extends React.Component {
                   </td>
                   <td>
                     {
-                      zillowState.get_zestimate.properties.principal[0]
-                        .zestimate[0].valueChange[0]._
+                    (Number(zillowState.get_zestimate.properties.principal[0]
+                      .zestimate[0].valueChange[0]._))
+                    .toLocaleString('en-US', {
+                        style: 'currency',
+                        currency: 'USD',
+                      })
                     }
                   </td>
                   <td>
@@ -153,7 +160,7 @@ export default class GetComps extends React.Component {
             </Table>
 
             <div>
-              <h2>Comparables</h2>
+              <h4>Comparables</h4>
               <Table striped bordered hover>
                 <thead>
                   <tr>
@@ -184,24 +191,32 @@ export default class GetComps extends React.Component {
                         </td>
                         {/* <td>{comp.address[0].city[0]}</td> */}
                         {/*
-                    <td>{comp.address[0].state[0]}</td>
-                    <td>{comp.address[0].zipcode[0]}</td>
-                    */}
-                        <td>${comp.zestimate[0].amount[0]._}</td>
+                        <td>{comp.address[0].state[0]}</td>
+                        <td>{comp.address[0].zipcode[0]}</td>
+                        */}
+                        <td>
+                        {
+                        (Number(comp.zestimate[0].amount[0]._))
+                        .toLocaleString('en-US', {
+                            style: 'currency',
+                            currency: 'USD',
+                          })
+                        }
+                        </td>
                         {/*
-                    <td>{comp.zestimate[0]["last-updated"][0]}</td>
-                    <td>{comp.zestimate[0].valueChange[0]._}</td>
-                    */}
+                        <td>{comp.zestimate[0]["last-updated"][0]}</td>
+                        <td>{comp.zestimate[0].valueChange[0]._}</td>
+                        */}
                         {/* <td>{comp.zestimate[0].valueChange[0]['$'].duration}</td> */}
                         {/*
-                    <td>
-                      <ul>
-                        <li><a href={comp.links[0].homedetails}>Details</a></li>
-                        <li><a href={comp.links[0].mapthishome}>Map</a></li>
-                        <li><a href={comp.links[0].comparables}>comps</a></li>
-                      </ul>
-                    </td>
-                    */}
+                        <td>
+                          <ul>
+                            <li><a href={comp.links[0].homedetails}>Details</a></li>
+                            <li><a href={comp.links[0].mapthishome}>Map</a></li>
+                            <li><a href={comp.links[0].comparables}>comps</a></li>
+                          </ul>
+                        </td>
+                        */}
                       </tr>
                     )
                   )}
@@ -211,6 +226,7 @@ export default class GetComps extends React.Component {
           </div>
         )}
       </div>
-    )
-  }
-}
+      </Container>
+    );
+  };
+};
