@@ -4,3 +4,6 @@ The app uses React.js, Redux, and Bootstrap React on the client-side and Node.js
 
 Before running the application, run this in the shell:
 - export ZWSID="[yourZWSID]"
+
+node-zillow:
+https://www.npmjs.com/package/node-zillow
