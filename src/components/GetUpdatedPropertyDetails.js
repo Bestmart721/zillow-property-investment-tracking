@@ -1,5 +1,5 @@
 import React from 'react';
-import { Table, Container } from 'react-bootstrap';
+import { Table, Container, Carousel } from 'react-bootstrap';
 
 export default class GetUpdatedPropertyDetails extends React.Component {
   zpid = '';
@@ -128,9 +128,33 @@ export default class GetUpdatedPropertyDetails extends React.Component {
             </Card>
             */}
 
-            {zillowState.get_zestimate.images.image[0].url.map((image, i) => (
-              <img key={i} src={image} />
-            ))}
+            {/* <img key={i} src={image} /> */}
+
+            {!zillowState.get_zestimate.images && (
+              <div>
+                <p>No images available</p>
+              </div>
+            )}
+            {zillowState.get_zestimate.images && (
+              <Carousel>
+              {zillowState.get_zestimate.images.image[0].url.map((image, i) => (
+                <Carousel.Item key={i} >
+                <img
+                  className="d-block w-100"
+                  src={image}
+                  alt="First slide"
+                />
+                {/*
+                <Carousel.Caption>
+                  <h3>First slide label</h3>
+                  <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                </Carousel.Caption>
+                */}
+                </Carousel.Item>
+              ))}
+              </Carousel>
+            )}
+
           </div>
         )}
       </div>

@@ -28,7 +28,7 @@ const App = () => (
         <Navbar.Brand>
           <a href="/">Investment Property Overview</a>
         </Navbar.Brand>
-        <NavDropdown title="Dropdown" id="basic-nav-dropdown">
+        <NavDropdown title="Properties" id="basic-nav-dropdown">
             <NavDropdown.Item href="/properties/248011825">12610 SE 110th Ct</NavDropdown.Item>
             <NavDropdown.Item href="/properties/248011795">12706 SE 110th Ct</NavDropdown.Item>
             <NavDropdown.Item href="/properties/248011788">12740 SE 110th Ct</NavDropdown.Item>
