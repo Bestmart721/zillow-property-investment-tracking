@@ -34,7 +34,7 @@ export default class GetZestimate extends React.Component {
               <div>Loading address details...</div>
             )}
             {zillowState.get_zestimate.address && (
-              <Table striped bordered hover>
+              <Table striped bordered hover style={{ width: 'auto' }}>
                 <thead>
                   <tr>
                     <th>Address</th>
@@ -80,7 +80,7 @@ export default class GetZestimate extends React.Component {
               <div>Loading rent zestimate details...</div>
             )}
             {zillowState.get_zestimate.rentzestimate && (
-              <Table striped bordered hover>
+              <Table striped bordered hover style={{ width: 'auto' }}>
               <thead>
                 <tr>
                   <th>Amount</th>
@@ -133,7 +133,7 @@ export default class GetZestimate extends React.Component {
               <div>Loading zestimate details...</div>
             )}
             {zillowState.get_zestimate.zestimate && (
-              <Table striped bordered hover>
+              <Table striped bordered hover style={{ width: 'auto' }}>
               <thead>
                 <tr>
                   <th>Amount</th>

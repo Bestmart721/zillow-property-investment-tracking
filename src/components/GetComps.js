@@ -36,7 +36,7 @@ export default class GetComps extends React.Component {
               <div>Loading address details...</div>
             )}
             {zillowState.get_zestimate.properties && (
-              <Table striped bordered hover>
+              <Table striped bordered hover style={{ width: 'auto' }}>
               <thead>
                 <tr>
                   <th>Address</th>
@@ -114,7 +114,7 @@ export default class GetComps extends React.Component {
               <div>Loading zestimate details...</div>
             )}
             {zillowState.get_zestimate.properties && (
-              <Table striped bordered hover>
+              <Table striped bordered hover style={{ width: 'auto' }}>
               <thead>
                 <tr>
                   <th>Amount</th>
@@ -168,7 +168,7 @@ export default class GetComps extends React.Component {
                 <div>Loading property details...</div>
               )}
               {zillowState.get_zestimate.properties && (
-                <Table striped bordered hover>
+                <Table striped bordered hover style={{ width: 'auto' }}>
                   <thead>
                     <tr>
                       <th>Address</th>

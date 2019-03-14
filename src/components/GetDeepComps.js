@@ -34,7 +34,7 @@ export default class GetDeepComps extends React.Component {
               <div>Loading address details...</div>
             )}
             {zillowState.get_zestimate.properties && (
-              <Table striped bordered hover>
+              <Table striped bordered hover style={{ width: 'auto' }}>
               <thead>
                 <tr>
                   <th>Address</th>
@@ -64,7 +64,7 @@ export default class GetDeepComps extends React.Component {
               <div>Loading address details...</div>
             )}
             {zillowState.get_zestimate.properties && (
-              <Table striped bordered hover>
+              <Table striped bordered hover style={{ width: 'auto' }}>
               <thead>
                 <tr>
                   <th>Year Built</th>
@@ -110,7 +110,7 @@ export default class GetDeepComps extends React.Component {
               <div>Loading address details...</div>
             )}
             {zillowState.get_zestimate.properties && (
-              <Table striped bordered hover>
+              <Table striped bordered hover style={{ width: 'auto' }}>
                 <thead>
                   <tr>
                     <th>Tax Assessment Year</th>
@@ -145,7 +145,7 @@ export default class GetDeepComps extends React.Component {
               <div>Loading address details...</div>
             )}
             {zillowState.get_zestimate.properties && (
-              <Table striped bordered hover>
+              <Table striped bordered hover style={{ width: 'auto' }}>
                 <thead>
                   <tr>
                     <th>Last Sold Date</th>
@@ -255,7 +255,7 @@ export default class GetDeepComps extends React.Component {
                 <div>Loading address details...</div>
               )}
               {zillowState.get_zestimate.properties && (
-                <Table striped bordered hover>
+                <Table striped bordered hover style={{ width: 'auto' }}>
                 <thead>
                   <tr>
                     <th>Address</th>

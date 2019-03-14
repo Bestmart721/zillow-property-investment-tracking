@@ -6,10 +6,6 @@ export default class GetUpdatedPropertyDetails extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log(this.props.location.image);
-    this.state = {
-      image: this.props.location.image
-    };
     this.zpid = this.props.location.pathname.split('/')[2];
   }
 
@@ -23,9 +19,9 @@ export default class GetUpdatedPropertyDetails extends React.Component {
       <Container>
       <div className="todoDetail">
         <h1>Updated Property Details</h1>
-
+        {/* 
         <img src={`../${this.state.image}`} style={{ width: '400px' }} />
-
+        */}
         <br />
 
         {!zillowState.get_zestimate && zillowState.isFetching && (
@@ -36,7 +32,7 @@ export default class GetUpdatedPropertyDetails extends React.Component {
         {zillowState.get_zestimate && !zillowState.isFetching && (
           <div>
             <h3>Property Page View Count</h3>
-            <Table striped bordered hover>
+            <Table striped bordered hover style={{ width: 'auto' }} >
               <thead>
                 <tr>
                   <th>Month</th>
@@ -71,7 +67,7 @@ export default class GetUpdatedPropertyDetails extends React.Component {
               <div>Loading address details...</div>
             )}
             {zillowState.get_zestimate.address && (
-              <Table striped bordered hover>
+              <Table striped bordered hover style={{ width: 'auto' }}>
               <thead>
                 <tr>
                   <th>Address</th>
@@ -124,7 +120,7 @@ export default class GetUpdatedPropertyDetails extends React.Component {
               <div>Loading fact details...</div>
             )}
             {zillowState.get_zestimate.editedFacts && (
-              <Table striped bordered hover>
+              <Table striped bordered hover style={{ width: 'auto' }}>
               <thead>
                 <tr>
                   <th>Type</th>

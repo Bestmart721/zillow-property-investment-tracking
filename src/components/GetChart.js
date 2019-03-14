@@ -30,7 +30,7 @@ export default class GetChart extends React.Component {
         {zillowState.get_zestimate && !zillowState.isFetching && (
           <div>
             <h4>Chart Details</h4>
-            <Table striped bordered hover>
+            <Table striped bordered hover style={{ width: 'auto' }}>
               <thead>
                 <tr>
                   <th>URL</th>
