@@ -29,33 +29,45 @@ export default class GetZestimate extends React.Component {
         {zillowState.get_zestimate && !zillowState.isFetching && (
           <div>
             <h5>Address</h5>
-            <Table striped bordered hover>
-              <thead>
-                <tr>
-                  <th>Address</th>
-                  <th>City</th>
-                  <th>State</th>
-                  <th>Zip</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>{zillowState.get_zestimate.address.street[0]}</td>
-                  <td>{zillowState.get_zestimate.address.city[0]}</td>
-                  <td>{zillowState.get_zestimate.address.state[0]}</td>
-                  <td>{zillowState.get_zestimate.address.zipcode[0]}</td>
-                </tr>
-              </tbody>
-            </Table>
+
+            {!zillowState.get_zestimate.address && (
+              <div>Loading address details...</div>
+            )}
+            {zillowState.get_zestimate.address && (
+              <Table striped bordered hover>
+                <thead>
+                  <tr>
+                    <th>Address</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Zip</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{zillowState.get_zestimate.address.street[0]}</td>
+                    <td>{zillowState.get_zestimate.address.city[0]}</td>
+                    <td>{zillowState.get_zestimate.address.state[0]}</td>
+                    <td>{zillowState.get_zestimate.address.zipcode[0]}</td>
+                  </tr>
+                </tbody>
+              </Table>
+            )}
 
             <br />
             <h5>Links</h5>
-            <ul>
-              <li><a href={zillowState.get_zestimate.links.comparables[0]}>Comps</a></li>
-              <li><a href={zillowState.get_zestimate.links.graphsanddata[0]}>Graphs and Data</a></li>
-              <li><a href={zillowState.get_zestimate.links.homedetails[0]}>Home Details</a></li>
-              <li><a href={zillowState.get_zestimate.links.mapthishome[0]}>Map</a></li>
-            </ul>
+
+            {!zillowState.get_zestimate.links && (
+              <div>Loading link details...</div>
+            )}
+            {zillowState.get_zestimate.links && (
+              <ul>
+                <li><a href={zillowState.get_zestimate.links.comparables[0]}>Comps</a></li>
+                <li><a href={zillowState.get_zestimate.links.graphsanddata[0]}>Graphs and Data</a></li>
+                <li><a href={zillowState.get_zestimate.links.homedetails[0]}>Home Details</a></li>
+                <li><a href={zillowState.get_zestimate.links.mapthishome[0]}>Map</a></li>
+              </ul>
+            )}
 
             {/* <h3>{zillowState.get_zestimate.links.graphsanddata[0]}</h3> */}
             {/* <h3>{zillowState.get_zestimate.links.mapthishome[0]}</h3> */}
@@ -63,16 +75,12 @@ export default class GetZestimate extends React.Component {
 
             <br />
             <h5>Rent Zestimate</h5>
-            {/*
-            <h3>{zillowState.get_zestimate.rentzestimate.amount[0]._}</h3>
-            <h3>{zillowState.get_zestimate.rentzestimate.amount[0]['$'].currency}</h3>
-            <h3>{zillowState.get_zestimate.rentzestimate["last-updated"][0]}</h3>
-            <h3>{zillowState.get_zestimate.rentzestimate.oneWeekChange[0]._}</h3>
-            <h3>{zillowState.get_zestimate.rentzestimate.valueChange[0]._}</h3>
-            <h3>{zillowState.get_zestimate.rentzestimate.valueChange[0]['$'].duration}</h3>
-            <h3>{zillowState.get_zestimate.rentzestimate.valueChange[0]['$'].currency}</h3>
-            */}
-            <Table striped bordered hover>
+
+            {!zillowState.get_zestimate.rentzestimate && (
+              <div>Loading rent zestimate details...</div>
+            )}
+            {zillowState.get_zestimate.rentzestimate && (
+              <Table striped bordered hover>
               <thead>
                 <tr>
                   <th>Amount</th>
@@ -106,23 +114,26 @@ export default class GetZestimate extends React.Component {
                 </tr>
               </tbody>
             </Table>
+            )}
 
+            {/*
+            <h3>{zillowState.get_zestimate.rentzestimate.amount[0]._}</h3>
+            <h3>{zillowState.get_zestimate.rentzestimate.amount[0]['$'].currency}</h3>
+            <h3>{zillowState.get_zestimate.rentzestimate["last-updated"][0]}</h3>
+            <h3>{zillowState.get_zestimate.rentzestimate.oneWeekChange[0]._}</h3>
+            <h3>{zillowState.get_zestimate.rentzestimate.valueChange[0]._}</h3>
+            <h3>{zillowState.get_zestimate.rentzestimate.valueChange[0]['$'].duration}</h3>
+            <h3>{zillowState.get_zestimate.rentzestimate.valueChange[0]['$'].currency}</h3>
+            */}
+            
             <br />
             <h5>Zestimate</h5>
-            {/*
-            <h3>{zillowState.get_zestimate.zestimate.amount[0]._}</h3>
-            <h3>{zillowState.get_zestimate.zestimate.amount[0]['$'].currency}</h3>
-            <h3>{zillowState.get_zestimate.zestimate["last-updated"][0]}</h3>
 
-            <h3>{zillowState.get_zestimate.zestimate.oneWeekChange[0]._}</h3>
-            <h3>{zillowState.get_zestimate.zestimate.oneWeekChange[0]['$'].currency}</h3>
-
-            <h3>{zillowState.get_zestimate.zestimate.valueChange[0]._}</h3>
-            <h3>{zillowState.get_zestimate.zestimate.valueChange[0]['$'].currency}</h3>
-            <h3>{zillowState.get_zestimate.zestimate.valueChange[0]['$'].duration}</h3>
-            <h3>{zillowState.get_zestimate.zestimate.percentile[0]}</h3>
-            */}
-            <Table striped bordered hover>
+            {!zillowState.get_zestimate.zestimate && (
+              <div>Loading zestimate details...</div>
+            )}
+            {zillowState.get_zestimate.zestimate && (
+              <Table striped bordered hover>
               <thead>
                 <tr>
                   <th>Amount</th>
@@ -156,7 +167,22 @@ export default class GetZestimate extends React.Component {
                 </tr>
               </tbody>
             </Table>
+            )}
 
+            {/*
+            <h3>{zillowState.get_zestimate.zestimate.amount[0]._}</h3>
+            <h3>{zillowState.get_zestimate.zestimate.amount[0]['$'].currency}</h3>
+            <h3>{zillowState.get_zestimate.zestimate["last-updated"][0]}</h3>
+
+            <h3>{zillowState.get_zestimate.zestimate.oneWeekChange[0]._}</h3>
+            <h3>{zillowState.get_zestimate.zestimate.oneWeekChange[0]['$'].currency}</h3>
+
+            <h3>{zillowState.get_zestimate.zestimate.valueChange[0]._}</h3>
+            <h3>{zillowState.get_zestimate.zestimate.valueChange[0]['$'].currency}</h3>
+            <h3>{zillowState.get_zestimate.zestimate.valueChange[0]['$'].duration}</h3>
+            <h3>{zillowState.get_zestimate.zestimate.percentile[0]}</h3>
+            */}
+            
           </div>
         )}
 

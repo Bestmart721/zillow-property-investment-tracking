@@ -6,6 +6,10 @@ export default class GetUpdatedPropertyDetails extends React.Component {
 
   constructor(props) {
     super(props);
+    console.log(this.props.location.image);
+    this.state = {
+      image: this.props.location.image
+    };
     this.zpid = this.props.location.pathname.split('/')[2];
   }
 
@@ -19,6 +23,9 @@ export default class GetUpdatedPropertyDetails extends React.Component {
       <Container>
       <div className="todoDetail">
         <h1>Updated Property Details</h1>
+
+        <img src={`../${this.state.image}`} style={{ width: '400px' }} />
+
         <br />
 
         {!zillowState.get_zestimate && zillowState.isFetching && (
@@ -39,16 +46,32 @@ export default class GetUpdatedPropertyDetails extends React.Component {
               <tbody>
                 <tr>
                   <td>
-                    {zillowState.get_zestimate.pageViewCount.currentMonth[0]}
+                    {!zillowState.get_zestimate.pageViewCount && (
+                      <div>Loading page view count details...</div>
+                    )}
+                    {zillowState.get_zestimate.pageViewCount && (
+                      <div>{zillowState.get_zestimate.pageViewCount.currentMonth[0]}</div>
+                    )}
                   </td>
-                  <td>{zillowState.get_zestimate.pageViewCount.total[0]}</td>
+                  <td>
+                    {!zillowState.get_zestimate.pageViewCount && (
+                      <div>Loading page view count details...</div>
+                    )}
+                    {zillowState.get_zestimate.pageViewCount && (
+                      <div>{zillowState.get_zestimate.pageViewCount.total[0]}</div>
+                    )}
+                  </td>
                 </tr>
               </tbody>
             </Table>
 
             <br />
             <h3>Address</h3>
-            <Table striped bordered hover>
+            {!zillowState.get_zestimate.address && (
+              <div>Loading address details...</div>
+            )}
+            {zillowState.get_zestimate.address && (
+              <Table striped bordered hover>
               <thead>
                 <tr>
                   <th>Address</th>
@@ -66,30 +89,42 @@ export default class GetUpdatedPropertyDetails extends React.Component {
                 </tr>
               </tbody>
             </Table>
+            )}
 
             <br />
             <h3>Links</h3>
-            <ul>
-              <li>
-                <a href={zillowState.get_zestimate.links.homeDetails[0]}>
-                  Home Details
-                </a>
-              </li>
-              <li>
-                <a href={zillowState.get_zestimate.links.photoGallery[0]}>
-                  Photo Gallery
-                </a>
-              </li>
-              <li>
-                <a href={zillowState.get_zestimate.links.homeInfo[0]}>
-                  Home Info
-                </a>
-              </li>
-            </ul>
+
+            {!zillowState.get_zestimate.links && (
+              <div>Loading link details...</div>
+            )}
+            {zillowState.get_zestimate.links && (
+              <ul>
+                <li>
+                  <a href={zillowState.get_zestimate.links.homeDetails[0]}>
+                    Home Details
+                  </a>
+                </li>
+                <li>
+                  <a href={zillowState.get_zestimate.links.photoGallery[0]}>
+                    Photo Gallery
+                  </a>
+                </li>
+                <li>
+                  <a href={zillowState.get_zestimate.links.homeInfo[0]}>
+                    Home Info
+                  </a>
+                </li>
+              </ul>
+            )}
 
             <br />
             <h3>Home Information</h3>
-            <Table striped bordered hover>
+
+            {!zillowState.get_zestimate.editedFacts && (
+              <div>Loading fact details...</div>
+            )}
+            {zillowState.get_zestimate.editedFacts && (
+              <Table striped bordered hover>
               <thead>
                 <tr>
                   <th>Type</th>
@@ -111,6 +146,7 @@ export default class GetUpdatedPropertyDetails extends React.Component {
                 </tr>
               </tbody>
             </Table>
+            )}
 
             <br />
             <h3>Images</h3>

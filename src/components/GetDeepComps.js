@@ -29,7 +29,12 @@ export default class GetDeepComps extends React.Component {
         {zillowState.get_zestimate && !zillowState.isFetching && (
           <div>
             <h4>Prinicipal Residence</h4>
-            <Table striped bordered hover>
+
+            {!zillowState.get_zestimate.properties && (
+              <div>Loading address details...</div>
+            )}
+            {zillowState.get_zestimate.properties && (
+              <Table striped bordered hover>
               <thead>
                 <tr>
                   <th>Address</th>
@@ -40,36 +45,26 @@ export default class GetDeepComps extends React.Component {
               </thead>
               <tbody>
                 <tr>
-                  <td>
-                    {
-                      zillowState.get_zestimate.properties.principal[0]
-                        .address[0].street[0]
-                    }
-                  </td>
-                  <td>
-                    {
-                      zillowState.get_zestimate.properties.principal[0]
-                        .address[0].city[0]
-                    }
-                  </td>
-                  <td>
-                    {
-                      zillowState.get_zestimate.properties.principal[0]
-                        .address[0].state[0]
-                    }
-                  </td>
-                  <td>
-                    {
-                      zillowState.get_zestimate.properties.principal[0]
-                        .address[0].zipcode[0]
-                    }
-                  </td>
+                  <td>{zillowState.get_zestimate.properties.principal[0]
+                        .address[0].street[0]}</td>
+                  <td>{zillowState.get_zestimate.properties.principal[0]
+                        .address[0].city[0]}</td>
+                  <td>{zillowState.get_zestimate.properties.principal[0]
+                        .address[0].state[0]}</td>
+                  <td>{zillowState.get_zestimate.properties.principal[0]
+                        .address[0].zipcode[0]}</td>
                 </tr>
               </tbody>
             </Table>
+            )}
 
             <h5>Home Details</h5>
-            <Table striped bordered hover>
+            
+            {!zillowState.get_zestimate.properties && (
+              <div>Loading address details...</div>
+            )}
+            {zillowState.get_zestimate.properties && (
+              <Table striped bordered hover>
               <thead>
                 <tr>
                   <th>Year Built</th>
@@ -107,136 +102,160 @@ export default class GetDeepComps extends React.Component {
                 </tr>
               </tbody>
             </Table>
+            )}
 
             <h5>Tax Assessment</h5>
-            <Table striped bordered hover>
-              <thead>
-                <tr>
-                  <th>Tax Assessment Year</th>
-                  <th>Assessment</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    {
-                      zillowState.get_zestimate.properties.principal[0]
-                        .taxAssessmentYear[0]
-                    }
-                  </td>
-                  <td>
-                    {
-                    (Number(zillowState.get_zestimate.properties.principal[0].taxAssessment[0]))
-                    .toLocaleString('en-US', {
-                        style: 'currency',
-                        currency: 'USD',
-                      })
-                    }
-                  </td>
-                </tr>
-              </tbody>
-            </Table>
+
+            {!zillowState.get_zestimate.properties && (
+              <div>Loading address details...</div>
+            )}
+            {zillowState.get_zestimate.properties && (
+              <Table striped bordered hover>
+                <thead>
+                  <tr>
+                    <th>Tax Assessment Year</th>
+                    <th>Assessment</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      {
+                        zillowState.get_zestimate.properties.principal[0]
+                          .taxAssessmentYear[0]
+                      }
+                    </td>
+                    <td>
+                      {
+                      (Number(zillowState.get_zestimate.properties.principal[0].taxAssessment[0]))
+                      .toLocaleString('en-US', {
+                          style: 'currency',
+                          currency: 'USD',
+                        })
+                      }
+                    </td>
+                  </tr>
+                </tbody>
+              </Table>
+            )}
 
             <h5>Sale Details</h5>
-            <Table striped bordered hover>
-              <thead>
-                <tr>
-                  <th>Last Sold Date</th>
-                  <th>Last Sold Price</th>
-                  <th>Current Zestimate</th>
-                  <th>Equity</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    {
-                      zillowState.get_zestimate.properties.principal[0]
-                        .lastSoldDate[0]
-                    }
-                  </td>
-                  <td>
-                    {
-                    (Number(zillowState.get_zestimate.properties.principal[0].lastSoldPrice[0]._))
-                    .toLocaleString('en-US', {
-                        style: 'currency',
-                        currency: 'USD',
-                      })
-                    }
-                  </td>
-                  <td>
-                    {
-                    (Number(zillowState.get_zestimate.properties.principal[0].zestimate[0].amount[0]._))
-                    .toLocaleString('en-US', {
-                        style: 'currency',
-                        currency: 'USD',
-                      })
-                    }
-                  </td>
-                  <td>
-                    {
-                    (Number(
-                      zillowState.get_zestimate.properties.principal[0]
-                        .zestimate[0].amount[0]._
-                    ) -
-                      Number(
+
+            {!zillowState.get_zestimate.properties && (
+              <div>Loading address details...</div>
+            )}
+            {zillowState.get_zestimate.properties && (
+              <Table striped bordered hover>
+                <thead>
+                  <tr>
+                    <th>Last Sold Date</th>
+                    <th>Last Sold Price</th>
+                    <th>Current Zestimate</th>
+                    <th>Equity</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      {
                         zillowState.get_zestimate.properties.principal[0]
-                          .lastSoldPrice[0]._
-                      ))
-                    .toLocaleString('en-US', {
-                        style: 'currency',
-                        currency: 'USD',
-                      })
-                    }
-                  </td>
-                </tr>
-              </tbody>
-            </Table>
+                          .lastSoldDate[0]
+                      }
+                    </td>
+                    <td>
+                      {
+                      (Number(zillowState.get_zestimate.properties.principal[0].lastSoldPrice[0]._))
+                      .toLocaleString('en-US', {
+                          style: 'currency',
+                          currency: 'USD',
+                        })
+                      }
+                    </td>
+                    <td>
+                      {
+                      (Number(zillowState.get_zestimate.properties.principal[0].zestimate[0].amount[0]._))
+                      .toLocaleString('en-US', {
+                          style: 'currency',
+                          currency: 'USD',
+                        })
+                      }
+                    </td>
+                    <td>
+                      {
+                      (Number(
+                        zillowState.get_zestimate.properties.principal[0]
+                          .zestimate[0].amount[0]._
+                      ) -
+                        Number(
+                          zillowState.get_zestimate.properties.principal[0]
+                            .lastSoldPrice[0]._
+                        ))
+                      .toLocaleString('en-US', {
+                          style: 'currency',
+                          currency: 'USD',
+                        })
+                      }
+                    </td>
+                  </tr>
+                </tbody>
+              </Table>
+            )}
 
             <br />
             <h5>Links</h5>
-            <ul>
-              <li>
-                <a
-                  href={
-                    zillowState.get_zestimate.properties.principal[0].links[0]
-                      .comparables[0]
-                  }>
-                  Comps
-                </a>
-              </li>
-              <li>
-                <a
-                  href={
-                    zillowState.get_zestimate.properties.principal[0].links[0]
-                      .graphsanddata[0]
-                  }>
-                  Graphs and Data
-                </a>
-              </li>
-              <li>
-                <a
-                  href={
-                    zillowState.get_zestimate.properties.principal[0].links[0]
-                      .homedetails[0]
-                  }>
-                  Home Details
-                </a>
-              </li>
-              <li>
-                <a
-                  href={
-                    zillowState.get_zestimate.properties.principal[0].links[0]
-                      .mapthishome[0]
-                  }>
-                  Map
-                </a>
-              </li>
-            </ul>
+
+            {!zillowState.get_zestimate.properties && (
+              <div>Loading address details...</div>
+            )}
+            {zillowState.get_zestimate.properties && (
+              <ul>
+                <li>
+                  <a
+                    href={
+                      zillowState.get_zestimate.properties.principal[0].links[0]
+                        .comparables[0]
+                    }>
+                    Comps
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={
+                      zillowState.get_zestimate.properties.principal[0].links[0]
+                        .graphsanddata[0]
+                    }>
+                    Graphs and Data
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={
+                      zillowState.get_zestimate.properties.principal[0].links[0]
+                        .homedetails[0]
+                    }>
+                    Home Details
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href={
+                      zillowState.get_zestimate.properties.principal[0].links[0]
+                        .mapthishome[0]
+                    }>
+                    Map
+                  </a>
+                </li>
+              </ul>
+            )}
 
             <div>
               <h4>Comparables</h4>
-              <Table striped bordered hover>
+
+              {!zillowState.get_zestimate.properties && (
+                <div>Loading address details...</div>
+              )}
+              {zillowState.get_zestimate.properties && (
+                <Table striped bordered hover>
                 <thead>
                   <tr>
                     <th>Address</th>
@@ -297,6 +316,8 @@ export default class GetDeepComps extends React.Component {
                   )}
                 </tbody>
               </Table>
+              )}
+
             </div>
           </div>
         )}

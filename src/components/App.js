@@ -24,7 +24,7 @@ export default class App extends React.Component {
               <Card.Text>
                 Investment condominium in Happy Valley, OR.
               </Card.Text>
-              <Button variant="primary"><Link to={{ pathname: "/properties/248011825", image: '../images/home1.jpg'}} style={{ color: 'white' }}>12610 SE 110th Ct</Link></Button>
+              <Button variant="primary"><Link to={{ pathname: "/properties/248011825"}} style={{ color: 'white' }}>12610 SE 110th Ct</Link></Button>
             </Card.Body>
           </Card>
           </Col>
@@ -37,7 +37,7 @@ export default class App extends React.Component {
               <Card.Text>
                 Investment condominium in Happy Valley, OR.
               </Card.Text>
-              <Button variant="primary"><Link to={{ pathname: "/properties/248011795", image: '../images/home2.jpg' }} style={{ color: 'white' }}>12706 SE 110th Ct</Link></Button>
+              <Button variant="primary"><Link to={{ pathname: "/properties/248011795" }} style={{ color: 'white' }}>12706 SE 110th Ct</Link></Button>
             </Card.Body>
           </Card>
           </Col>
@@ -50,7 +50,7 @@ export default class App extends React.Component {
               <Card.Text>
                 Investment condominium in Happy Valley, OR.
               </Card.Text>
-              <Button variant="primary"><Link to={{ pathname: "/properties/248011788", image: '../images/home3.jpg' }} style={{ color: 'white' }}>12740 SE 110th Ct</Link></Button>
+              <Button variant="primary"><Link to={{ pathname: "/properties/248011788" }} style={{ color: 'white' }}>12740 SE 110th Ct</Link></Button>
             </Card.Body>
           </Card>
           </Col>
@@ -63,7 +63,7 @@ export default class App extends React.Component {
               <Card.Text>
                 Investment condominium in Happy Valley, OR.
               </Card.Text>
-              <Button variant="primary"><Link to={{ pathname: "/properties/248011766", image: '../images/home4.jpg' }} style={{ color: 'white' }}>12021 SE 104th Ct</Link></Button>
+              <Button variant="primary"><Link to={{ pathname: "/properties/248011766" }} style={{ color: 'white' }}>12021 SE 104th Ct</Link></Button>
             </Card.Body>
           </Card>
           </Col>

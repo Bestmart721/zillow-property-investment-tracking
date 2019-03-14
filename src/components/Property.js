@@ -1,5 +1,6 @@
 import React from 'react';
-import { Container, Card } from 'react-bootstrap';
+import { Container, Card, ListGroup } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 export default class Property extends React.Component {
   zpid = '';
@@ -21,15 +22,10 @@ export default class Property extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      image: this.props.location.image
-    };
 
     this.zpid = this.props.location.pathname.split('/')[2];
 
-    this.get_updated_property_details = `/properties/${
-      this.zpid
-    }/get-updated-property-details`;
+    this.get_updated_property_details = `/properties/${this.zpid}/get-updated-property-details`;
     this.get_deep_comps = `/properties/${this.zpid}/get-deep-comps`;
     /*
     this.get_deep_search_results = `/properties/${this.zpid}/get-deep-search-results`;
@@ -46,21 +42,23 @@ export default class Property extends React.Component {
   }
 
   render() {
-    console.log('image: ' + this.state.image);
     return (
       <Container>
       <div className="todoDetail">
-        <h2>Property Detail: {this.zpid}</h2>
+        <h2 >Property Detail: {this.zpid}</h2>
+        {/* 
         <img src={ this.state.image } style={{ width: '400px' }} />
-
+        */}
         <ul>
           <li>
-            <a href={this.get_updated_property_details}>
+            <Link to={{ pathname: this.get_updated_property_details }} >
               Get Updated Property Details
-            </a>
+            </Link>
           </li>
           <li>
-            <a href={this.get_deep_comps}>Get Deep Comps</a>
+            <Link to={{ pathname: this.get_deep_comps }} >
+              Get Deep Comps
+            </Link>
           </li>
           {/*
           <li><a href={this.get_deep_search_results}>Get Deep Search Results</a></li>
@@ -72,13 +70,19 @@ export default class Property extends React.Component {
           <li><a href={this.get_search_results}>Get Search Results</a></li>
           */}
           <li>
-            <a href={this.get_zestimate}>Get Zestimate</a>
+            <Link to={{ pathname: this.get_zestimate }} >
+              Get Zestimate
+            </Link>
           </li>
           <li>
-            <a href={this.get_chart}>Get Chart</a>
+            <Link to={{ pathname: this.get_chart }} >
+              Get Chart
+            </Link>
           </li>
           <li>
-            <a href={this.get_comps}>Get Comps</a>
+            <Link to={{ pathname: this.get_comps }} >
+              Get Comps
+            </Link>
           </li>
         </ul>
       </div>
