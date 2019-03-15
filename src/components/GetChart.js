@@ -3,8 +3,6 @@ import { Table, Container } from 'react-bootstrap';
 
 
 export default class GetChart extends React.Component {
-  zpid = '';
-
   constructor(props) {
     super(props);
     this.zpid = this.props.location.pathname.split('/')[2];

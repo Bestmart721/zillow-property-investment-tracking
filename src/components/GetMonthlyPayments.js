@@ -2,8 +2,6 @@ import React from "react";
 import { Table } from 'react-bootstrap';
 
 export default class GetMonthlyPayments extends React.Component {
-  zpid = '';
-
   constructor(props) {
     super(props);
     this.zpid = this.props.location.pathname.split('/')[2];

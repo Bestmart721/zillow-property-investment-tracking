@@ -2,8 +2,6 @@ import React from 'react';
 import { Table, Container, Carousel } from 'react-bootstrap';
 
 export default class GetUpdatedPropertyDetails extends React.Component {
-  zpid = '';
-
   constructor(props) {
     super(props);
     this.zpid = this.props.location.pathname.split('/')[2];
