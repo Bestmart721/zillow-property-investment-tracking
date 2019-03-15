@@ -1,30 +1,11 @@
 import React from 'react';
-import { Container, Card, ListGroup } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 export default class Property extends React.Component {
-  zpid = '';
-
-  get_updated_property_details = '';
-  get_deep_comps = '';
-  /*
-  get_deep_search_results = '';
-  get_rate_summary = '';
-  get_monthly_payments = '';
-  get_demographics = '';
-  get_region_children = '';
-  get_region_chart = '';
-  get_search_results = '';
-  */
-  get_zestimate = '';
-  get_chart = '';
-  get_comps = '';
-
   constructor(props) {
     super(props);
-
     this.zpid = this.props.location.pathname.split('/')[2];
-
     this.get_updated_property_details = `/properties/${this.zpid}/get-updated-property-details`;
     this.get_deep_comps = `/properties/${this.zpid}/get-deep-comps`;
     /*

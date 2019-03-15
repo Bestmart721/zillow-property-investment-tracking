@@ -1,19 +1,20 @@
-var Zillow = require("node-zillow");
+const Zillow = require("node-zillow");
+require('dotenv').config();
+
 //Instantiate
-var zwsid = process.env.ZWSID;
-console.log('zwsid: ' + zwsid);
-var zillow = new Zillow(zwsid);
+const zwsid = process.env.ZWSID;
+const zillow = new Zillow(zwsid);
 
 export const getUpdatedPropertyDetails = async (req, res) => {
-  let zpid = req.url.split("/")[2];
+  const zpid = req.url.split("/")[2];
 
-  var parameters = {
+  const parameters = {
     zpid: zpid,
     rentzestimate: true
   };
 
   try {
-    let _data = await zillow.get("GetUpdatedPropertyDetails", parameters);
+    const _data = await zillow.get("GetUpdatedPropertyDetails", parameters);
 
     return res.status(200).json({
       status: 200,
@@ -29,16 +30,16 @@ export const getUpdatedPropertyDetails = async (req, res) => {
 };
 
 export const getChart = async (req, res) => {
-  let zpid = req.url.split("/")[2];
+  const zpid = req.url.split("/")[2];
 
-  var parameters = {
+  const parameters = {
     zpid: zpid
   };
 
   parameters["unit-type"] = "dollar";
 
   try {
-    let _data = await zillow.get("GetChart", parameters);
+    const _data = await zillow.get("GetChart", parameters);
 
     return res.status(200).json({
       status: 200,
@@ -54,15 +55,15 @@ export const getChart = async (req, res) => {
 };
 
 export const getComps = async (req, res) => {
-  let zpid = req.url.split("/")[2];
+  const zpid = req.url.split("/")[2];
 
-  var parameters = {
+  const parameters = {
     zpid: zpid,
     count: 20
   };
 
   try {
-    let _data = await zillow.get("GetComps", parameters);
+    const _data = await zillow.get("GetComps", parameters);
 
     return res.status(200).json({
       status: 200,
@@ -78,15 +79,15 @@ export const getComps = async (req, res) => {
 };
 
 export const getDeepComps = async (req, res) => {
-  let zpid = req.url.split("/")[2];
+  const zpid = req.url.split("/")[2];
 
-  var parameters = {
+  const parameters = {
     zpid: zpid,
     count: 20
   };
 
   try {
-    let _data = await zillow.get("GetDeepComps", parameters);
+    const _data = await zillow.get("GetDeepComps", parameters);
 
     return res.status(200).json({
       status: 200,
@@ -102,14 +103,12 @@ export const getDeepComps = async (req, res) => {
 };
 
 export const getRegionChildren = async (req, res) => {
-  let zpid = req.url.split("/")[2];
-
-  var parameters = {
+  const parameters = {
     state: "OR"
   };
 
   try {
-    let _data = await zillow.get("GetRegionChildren", parameters);
+    const _data = await zillow.get("GetRegionChildren", parameters);
 
     return res.status(200).json({
       status: 200,
@@ -125,15 +124,15 @@ export const getRegionChildren = async (req, res) => {
 };
 
 export const getZestimate = async (req, res) => {
-  let zpid = req.url.split("/")[2];
+  const zpid = req.url.split("/")[2];
 
-  var parameters = {
+  const parameters = {
     zpid: zpid,
     rentzestimate: true
   };
 
   try {
-    let _data = await zillow.get("GetZestimate", parameters);
+    const _data = await zillow.get("GetZestimate", parameters);
 
     return res.status(200).json({
       status: 200,
