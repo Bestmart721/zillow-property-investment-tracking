@@ -12,6 +12,7 @@ build
 
 # misc
 .DS_Store
+.env
 /express-server/.env
 .env.local
 .env.development.local

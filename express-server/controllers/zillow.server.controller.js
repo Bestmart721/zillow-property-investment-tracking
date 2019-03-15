@@ -3,6 +3,7 @@ require('dotenv').config();
 
 //Instantiate
 const zwsid = process.env.ZWSID;
+console.log(zwsid);
 const zillow = new Zillow(zwsid);
 
 export const getUpdatedPropertyDetails = async (req, res) => {
@@ -15,6 +16,8 @@ export const getUpdatedPropertyDetails = async (req, res) => {
 
   try {
     const _data = await zillow.get("GetUpdatedPropertyDetails", parameters);
+
+    console.log(_data);
 
     return res.status(200).json({
       status: 200,

@@ -3,6 +3,9 @@
   "homepage": "",
   "scripts": {
     "deploy": "now && now alias",
+    "start2": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "node ./express-server/server_hooked.js",
+    "client": "npm run start",
     "start": "react-scripts start",
     "now-start": "serve -s ./build",
     "build": "react-scripts build",
@@ -12,6 +15,7 @@
   },
   "proxy": "http://localhost:3001",
   "devDependencies": {
+    "concurrently": "^4.1.0",
     "prettier": "1.16.4",
     "react-scripts": "2.1.3"
   },
