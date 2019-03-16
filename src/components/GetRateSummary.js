@@ -15,7 +15,7 @@ export default class GetRateSummary extends React.Component {
     const zillowState = this.props.mappedZillowState;
 
     return (
-      <div className="todoDetail">
+      <div className="">
         <h2>Get Rate Summary Detail</h2>
         {/*
         {!zillowState.get_zestimate && zillowState.isFetching && (

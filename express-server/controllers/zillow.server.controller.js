@@ -17,8 +17,6 @@ export const getUpdatedPropertyDetails = async (req, res) => {
   try {
     const _data = await zillow.get("GetUpdatedPropertyDetails", parameters);
 
-    console.log(_data);
-
     return res.status(200).json({
       status: 200,
       data: _data,

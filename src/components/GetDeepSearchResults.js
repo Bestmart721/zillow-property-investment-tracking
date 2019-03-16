@@ -15,7 +15,7 @@ export default class GetDeepSearchResults extends React.Component {
     const zillowState = this.props.mappedZillowState;
 
     return (
-      <div className="todoDetail">
+      <div className="">
         <h2>Get Deep Search Results Detail</h2>
         {/*
         {!zillowState.get_zestimate && zillowState.isFetching && (

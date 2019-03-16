@@ -15,7 +15,7 @@ export default class GetUpdatedPropertyDetails extends React.Component {
     const zillowState = this.props.mappedZillowState;
     return (
       <Container>
-      <div className="todoDetail">
+      <div className="">
         <h1>Updated Property Details</h1>
         {/* 
         <img src={`../${this.state.image}`} style={{ width: '400px' }} />

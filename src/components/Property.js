@@ -25,7 +25,7 @@ export default class Property extends React.Component {
   render() {
     return (
       <Container>
-      <div className="todoDetail">
+      <div className="">
         <h2 >Property Detail: {this.zpid}</h2>
         {/* 
         <img src={ this.state.image } style={{ width: '400px' }} />

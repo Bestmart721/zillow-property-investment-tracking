@@ -16,7 +16,7 @@ export default class GetComps extends React.Component {
 
     return (
       <Container>
-      <div className="todoDetail">
+      <div>
         <h1>Comparable Property Info</h1>
         <br />
         {!zillowState.get_zestimate && zillowState.isFetching && (

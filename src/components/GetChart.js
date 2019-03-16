@@ -17,7 +17,7 @@ export default class GetChart extends React.Component {
 
     return (
       <Container>
-      <div className="todoDetail">
+      <div>
         <h1>Chart Info</h1>
         <br />
         {!zillowState.get_zestimate && zillowState.isFetching && (

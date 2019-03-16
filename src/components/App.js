@@ -8,7 +8,7 @@ export default class App extends React.Component {
   render() {
     return (
       <Container>
-        <h1 className="todoDetail" style={{ padding: '20px' }}>Property Portfolio</h1>
+        <h1 style={{ padding: '20px' }}>Property Portfolio</h1>
         <div style={{ display: 'flex' }}>
           <Row>
             <Col sm={12} md={6} lg={3}>

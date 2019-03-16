@@ -16,7 +16,7 @@ export default class GetDeepComps extends React.Component {
 
     return (
       <Container>
-      <div className="todoDetail">
+      <div className="">
         <h1>Deep Comparables Info</h1>
 
         {!zillowState.get_zestimate && zillowState.isFetching && (

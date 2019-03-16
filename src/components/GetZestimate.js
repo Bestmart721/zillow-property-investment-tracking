@@ -16,7 +16,7 @@ export default class GetZestimate extends React.Component {
 
     return (
       <Container>
-      <div className="todoDetail">
+      <div className="">
 
         <h1>Zestimate Detail</h1>
         {!zillowState.get_zestimate && zillowState.isFetching && (
