@@ -28,13 +28,15 @@ const App = () => (
         <Navbar.Brand>
           <a href="/">Investment Property Overview</a>
         </Navbar.Brand>
+        {/* 
         <NavDropdown title="Properties" id="basic-nav-dropdown">
-            <NavDropdown.Item href="/properties/248011825">12610 SE 110th Ct</NavDropdown.Item>
-            <NavDropdown.Item href="/properties/248011795">12706 SE 110th Ct</NavDropdown.Item>
-            <NavDropdown.Item href="/properties/248011788">12740 SE 110th Ct</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="/properties/248011766">12021 SE 104th Ct</NavDropdown.Item>
-          </NavDropdown>
+          <NavDropdown.Item href="/properties/248011825">12610 SE 110th Ct</NavDropdown.Item>
+          <NavDropdown.Item href="/properties/248011795">12706 SE 110th Ct</NavDropdown.Item>
+          <NavDropdown.Item href="/properties/248011788">12740 SE 110th Ct</NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item href="/properties/248011766">12021 SE 104th Ct</NavDropdown.Item>
+        </NavDropdown>
+        */}
       </Navbar>
     </div>
 
