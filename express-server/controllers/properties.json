@@ -5,6 +5,7 @@
         "city": "Happy Valley",
         "state": "OR",
         "zip": "97015",
+        "description": "Investment condominium in Happy Valley, OR.",
         "image": "home1.jpg"
     },
     {
@@ -13,6 +14,7 @@
         "city": "Happy Valley",
         "state": "OR",
         "zip": "97015",
+        "description": "Investment condominium in Happy Valley, OR.",
         "image": "home2.jpg"
     },
     {
@@ -21,6 +23,7 @@
         "city": "Happy Valley",
         "state": "OR",
         "zip": "97015",
+        "description": "Investment condominium in Happy Valley, OR.",
         "image": "home3.jpg"
     },
     {
@@ -29,6 +32,7 @@
         "city": "Happy Valley",
         "state": "OR",
         "zip": "97086",
+        "description": "Investment condominium in Happy Valley, OR.",
         "image": "home4.jpg"
     }
 ]

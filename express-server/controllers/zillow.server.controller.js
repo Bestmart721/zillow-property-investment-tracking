@@ -147,3 +147,27 @@ export const getZestimate = async (req, res) => {
     });
   }
 };
+
+export const getSearchResults = async (req, res) => {
+  const ary = req.params.query.split('&');
+
+  const parameters = {
+    address: ary[0].split('=')[1],
+    citystatezip: ary[1].split('=')[1],
+  }
+
+  try {
+    const _data = await zillow.get("GetSearchResults", parameters);
+
+    return res.status(200).json({
+      status: 200,
+      data: _data,
+      message: "Successfully retrieved response"
+    });
+  } catch (e) {
+    return res.status(400).json({
+      status: 400,
+      message: e.message
+    });
+  }
+}

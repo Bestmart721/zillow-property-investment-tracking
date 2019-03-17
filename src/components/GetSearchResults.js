@@ -25,8 +25,6 @@ export default class GetSearchResults extends React.Component {
         )}
         {zillowState.get_zestimate && !zillowState.isFetching && (
           <div>
-
-
           </div>
         )}
         */}
