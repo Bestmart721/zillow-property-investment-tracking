@@ -20,12 +20,12 @@ export default class PropertySearchForm extends React.Component {
         },
         fieldErrors: {},
         property: '',
+        _loading: false,
     };
 
     this.onFormSubmit = this.onFormSubmit.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
     this.validate = this.validate.bind(this);
-
   }
 
   onFormSubmit = (evt) => {
@@ -77,7 +77,7 @@ export default class PropertySearchForm extends React.Component {
 
     if (!property.address) return true;
     if (!property.city) return true;
-    if (!property.state) return true;
+    if (!property.state || property.state.length !== 2) return true;
     if (errMessages.length) return true;
 
     return false;
@@ -105,11 +105,11 @@ export default class PropertySearchForm extends React.Component {
           />
           <br />
           <Field
-            placeholder='State'
+            placeholder='State (i.e. OR)'
             name='state'
             value={this.state.fields.state}
             onChange={this.onInputChange}
-            validate={(val) => (val ? false : 'State Required')}
+            validate={(val) => (val ? false : 'Two-Letter State Code Required')}
           />
           <br />
 

@@ -11,24 +11,30 @@ export default class App extends React.Component {
     super(props);
     this.client = new Client();
     this.state = {
-      properties: []
+      properties: [],
+      _loading: false,
     };
     this.loadPropertiesFromServer = this.loadPropertiesFromServer.bind(this);
   }
 
   componentDidMount() {
+    this.setState({ _loading: true });
     this.loadPropertiesFromServer();
     //setInterval(this.loadPropertiesFromServer, 5000);
   }
 
   loadPropertiesFromServer = () => {
     this.client.getProperties((serverProperties) => (
-        this.setState({ properties: serverProperties })
+        this.setState({ _loading: false, properties: serverProperties })
       )
     );
   };
 
   render() {
+    if (this.state._loading) {
+      return <img alt='loading' src='./images/loading.gif' />;
+    }
+
     const properties = this.state.properties.map((property) => (
       <PropertyCard 
         key={ property.zpid }
@@ -45,9 +51,7 @@ export default class App extends React.Component {
     return (
       <Container>
         <PropertySearchForm />
-
         <br />
-
         <h1 style={{ padding: '20px' }}>Property Portfolio</h1>
         <div style={{ display: 'flex' }}>
           <Row>
