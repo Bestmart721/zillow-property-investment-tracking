@@ -103,27 +103,6 @@ export const getDeepComps = async (req, res) => {
   }
 };
 
-export const getRegionChildren = async (req, res) => {
-  const parameters = {
-    state: "OR"
-  };
-
-  try {
-    const _data = await zillow.get("GetRegionChildren", parameters);
-
-    return res.status(200).json({
-      status: 200,
-      data: _data,
-      message: "Successfully retrieved response"
-    });
-  } catch (e) {
-    return res.status(400).json({
-      status: 400,
-      message: e.message
-    });
-  }
-};
-
 export const getZestimate = async (req, res) => {
   const zpid = req.url.split("/")[2];
 
