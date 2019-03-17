@@ -89,10 +89,7 @@ export default class PropertySearchForm extends React.Component {
         <h1>Get Property Zestimate</h1>
         <form onSubmit={this.onFormSubmit}>
           <Field
-<<<<<<< HEAD
             id="address-input"
-=======
->>>>>>> ae7dad20753222192e98566fa6a0b5d898804424
             placeholder='Address'
             name='address'
             value={this.state.fields.address}
@@ -101,10 +98,7 @@ export default class PropertySearchForm extends React.Component {
           />
           <br />
           <Field
-<<<<<<< HEAD
             id="city-input"
-=======
->>>>>>> ae7dad20753222192e98566fa6a0b5d898804424
             placeholder='City'
             name='city'
             value={this.state.fields.city}
@@ -113,10 +107,7 @@ export default class PropertySearchForm extends React.Component {
           />
           <br />
           <Field
-<<<<<<< HEAD
             id="state-inputs"
-=======
->>>>>>> ae7dad20753222192e98566fa6a0b5d898804424
             placeholder='State (i.e. OR)'
             name='state'
             value={this.state.fields.state}
