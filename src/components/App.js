@@ -36,7 +36,7 @@ export default class App extends React.Component {
     }
 
     const properties = this.state.properties.map((property) => (
-      <PropertyCard 
+      <PropertyCard
         key={ property.zpid }
         address={ property.address }
         city={ property.city }
@@ -52,7 +52,7 @@ export default class App extends React.Component {
       <Container>
         <PropertySearchForm />
         <br />
-        <h1 style={{ padding: '20px' }}>Property Portfolio</h1>
+        <h1 style={{ padding: '20px' }} id='property-portfolio-header'>Property Portfolio</h1>
         <div style={{ display: 'flex' }}>
           <Row>
             { properties }

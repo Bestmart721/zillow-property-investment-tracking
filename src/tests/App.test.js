@@ -25,5 +25,16 @@ describe('App', () => {
   it('contains a PropertyCard component', () => {
     expect(wrapper.find('PropertyCard')).toBeDefined();
   });
-  
+
+  /*
+  it('contains a header that says "Property Portfolio"', () => {
+    expect(wrapper.find('h1')).toBeDefined();
+    expect(wrapper.text().includes('Property Portfolio')).toBe(true);
+  });
+  */
+
+  it('contains a Row component', () => {
+    expect(wrapper.find('Row')).toBeDefined();
+  });
+
 });

@@ -21,7 +21,7 @@ describe('PropertySearchForm', () => {
 
   it('initializes `fieldErrors` to an empty object', () => {
     expect(wrapper.state().fieldErrors).toEqual({});
-  });  
+  });
 
   it('initializes `property` to an empty string', () => {
     expect(wrapper.state().property).toEqual('');
@@ -33,7 +33,11 @@ describe('PropertySearchForm', () => {
 
   it('contains three Field components', () => {
     expect(wrapper.find('Field')).toBeDefined();
-    //expect(wrapper.find('Field')).toHaveLength(3);
+    expect(wrapper.find(Field)).toHaveLength(3);
   });
 
+  it('contains a header that says "Get Property Zestimate"', () => {
+    expect(wrapper.find('h1')).toBeDefined();
+    expect(wrapper.text().includes('Get Property Zestimate')).toBe(true);
+  });
 });

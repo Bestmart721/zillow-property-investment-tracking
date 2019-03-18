@@ -17,7 +17,6 @@ export default class GetZestimate extends React.Component {
     return (
       <Container>
       <div className="">
-
         <h1>Zestimate Detail</h1>
         {!zillowState.get_zestimate && zillowState.isFetching && (
           <div>
@@ -27,7 +26,6 @@ export default class GetZestimate extends React.Component {
         {zillowState.get_zestimate && !zillowState.isFetching && (
           <div>
             <h5>Address</h5>
-
             {!zillowState.get_zestimate.address && (
               <div>Loading address details...</div>
             )}
@@ -54,7 +52,6 @@ export default class GetZestimate extends React.Component {
 
             <br />
             <h5>Links</h5>
-
             {!zillowState.get_zestimate.links && (
               <div>Loading link details...</div>
             )}
@@ -73,7 +70,6 @@ export default class GetZestimate extends React.Component {
 
             <br />
             <h5>Rent Zestimate</h5>
-
             {!zillowState.get_zestimate.rentzestimate && (
               <div>Loading rent zestimate details...</div>
             )}
@@ -123,10 +119,9 @@ export default class GetZestimate extends React.Component {
             <h3>{zillowState.get_zestimate.rentzestimate.valueChange[0]['$'].duration}</h3>
             <h3>{zillowState.get_zestimate.rentzestimate.valueChange[0]['$'].currency}</h3>
             */}
-            
+
             <br />
             <h5>Zestimate</h5>
-
             {!zillowState.get_zestimate.zestimate && (
               <div>Loading zestimate details...</div>
             )}
@@ -180,7 +175,7 @@ export default class GetZestimate extends React.Component {
             <h3>{zillowState.get_zestimate.zestimate.valueChange[0]['$'].duration}</h3>
             <h3>{zillowState.get_zestimate.zestimate.percentile[0]}</h3>
             */}
-            
+
           </div>
         )}
 
