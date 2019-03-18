@@ -35,7 +35,7 @@ export default class PropertySearchForm extends React.Component {
 
     if (this.validate()) return;
 
-    const searchStr = `address=${newProperty.address}&citystatezip=${newProperty.city}, ${newProperty.state}`; 
+    const searchStr = `address=${newProperty.address}&citystatezip=${newProperty.city}, ${newProperty.state}`;
 
     let data = fetch(`/api/properties/get-search-results/${searchStr}`, {
         headers: {
@@ -122,7 +122,7 @@ export default class PropertySearchForm extends React.Component {
         <div>
           {this.state.property === '' && (
             <div>
-              {/* 
+              {/*
               <p>(property Zestimate search results...)</p>
               */}
             </div>
@@ -131,7 +131,7 @@ export default class PropertySearchForm extends React.Component {
             <div>
               <h5>Property Zestimate:</h5>
               <p>
-                { 
+                {
                   (Number(this.state.property))
                     .toLocaleString('en-US', {
                         style: 'currency',

@@ -9,7 +9,7 @@ describe('GetDeepComps', () => {
     location: {
         pathname: 'api/properties/248011788'
     },
-    fetchGetDeepComps: () => console.log('fetchGetDeepComps called'),
+    fetchGetDeepComps: () => {},
     mappedZillowState: {
         get_zestimate: {
         },

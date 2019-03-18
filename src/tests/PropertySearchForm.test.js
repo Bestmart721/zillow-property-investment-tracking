@@ -40,4 +40,6 @@ describe('PropertySearchForm', () => {
     expect(wrapper.find('h1')).toBeDefined();
     expect(wrapper.text().includes('Get Property Zestimate')).toBe(true);
   });
+
+
 });
