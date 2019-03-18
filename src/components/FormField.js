@@ -33,7 +33,7 @@ export default class FormField extends React.Component {
     return (
       <div>
         <input
-          placeholder={this.props.placeholder}
+          placeholder={` ${this.props.placeholder}`}
           value={this.state.value}
           onChange={this.onChange}
         />
