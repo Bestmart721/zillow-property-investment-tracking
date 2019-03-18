@@ -32,16 +32,15 @@ describe('FormField', () => {
   it('initializes `value` to a the passed in value', () => {
     expect(
       wrapper.state().value
-    ).toEqual('10203 SE 40th Ave');
+    ).toEqual(val);
   });
 
   it('should update the input field property', () => {
-    const value = '10203 SE 40th Ave';
     const input = wrapper.find('input');
     input.simulate("change", {
-      target: { value: value }
+      target: { value: val }
     });
-    expect(wrapper.state().value).toEqual(value);
+    expect(wrapper.state().value).toEqual(val);
   });
 
 });
