@@ -17,7 +17,7 @@ export default class GetUpdatedPropertyDetails extends React.Component {
       <Container>
       <div className="">
         <h1>Updated Property Details</h1>
-        {/* 
+        {/*
         <img src={`../${this.state.image}`} style={{ width: '400px' }} />
         */}
         <br />
@@ -87,7 +87,6 @@ export default class GetUpdatedPropertyDetails extends React.Component {
 
             <br />
             <h3>Links</h3>
-
             {!zillowState.get_zestimate.links && (
               <div>Loading link details...</div>
             )}
@@ -113,7 +112,6 @@ export default class GetUpdatedPropertyDetails extends React.Component {
 
             <br />
             <h3>Home Information</h3>
-
             {!zillowState.get_zestimate.editedFacts && (
               <div>Loading fact details...</div>
             )}
@@ -133,9 +131,7 @@ export default class GetUpdatedPropertyDetails extends React.Component {
                   <td>{zillowState.get_zestimate.editedFacts.useCode[0]}</td>
                   <td>{zillowState.get_zestimate.editedFacts.bedrooms[0]}</td>
                   <td>{zillowState.get_zestimate.editedFacts.bathrooms[0]}</td>
-                  <td>
-                    {zillowState.get_zestimate.editedFacts.finishedSqFt[0]}
-                  </td>
+                  <td>{zillowState.get_zestimate.editedFacts.finishedSqFt[0]}</td>
                   <td>{zillowState.get_zestimate.editedFacts.yearBuilt[0]}</td>
                 </tr>
               </tbody>
@@ -144,22 +140,6 @@ export default class GetUpdatedPropertyDetails extends React.Component {
 
             <br />
             <h3>Images</h3>
-
-            {/*
-            <Card style={{ width: '18rem' }}>
-              <Card.Img variant="top" src={image} />
-              <Card.Body>
-                <Card.Title>{i}</Card.Title>
-                <Card.Text>
-                  Photo text
-                </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
-              </Card.Body>
-            </Card>
-            */}
-
-            {/* <img key={i} src={image} /> */}
-
             {!zillowState.get_zestimate.images && (
               <div>
                 <p>No images available</p>

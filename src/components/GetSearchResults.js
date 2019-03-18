@@ -1,5 +1,4 @@
 import React from "react";
-import { Table } from 'react-bootstrap';
 
 export default class GetSearchResults extends React.Component {
   constructor(props) {

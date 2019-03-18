@@ -166,10 +166,8 @@ export default class GetZestimate extends React.Component {
             <h3>{zillowState.get_zestimate.zestimate.amount[0]._}</h3>
             <h3>{zillowState.get_zestimate.zestimate.amount[0]['$'].currency}</h3>
             <h3>{zillowState.get_zestimate.zestimate["last-updated"][0]}</h3>
-
             <h3>{zillowState.get_zestimate.zestimate.oneWeekChange[0]._}</h3>
             <h3>{zillowState.get_zestimate.zestimate.oneWeekChange[0]['$'].currency}</h3>
-
             <h3>{zillowState.get_zestimate.zestimate.valueChange[0]._}</h3>
             <h3>{zillowState.get_zestimate.zestimate.valueChange[0]['$'].currency}</h3>
             <h3>{zillowState.get_zestimate.zestimate.valueChange[0]['$'].duration}</h3>

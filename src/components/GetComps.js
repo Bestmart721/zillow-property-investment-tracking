@@ -45,14 +45,10 @@ export default class GetComps extends React.Component {
               </thead>
               <tbody>
                 <tr>
-                  <td>{zillowState.get_zestimate.properties.principal[0]
-                        .address[0].street[0]}</td>
-                  <td>{zillowState.get_zestimate.properties.principal[0]
-                        .address[0].city[0]}</td>
-                  <td>{zillowState.get_zestimate.properties.principal[0]
-                        .address[0].state[0]}</td>
-                  <td>{zillowState.get_zestimate.properties.principal[0]
-                        .address[0].zipcode[0]}</td>
+                  <td>{zillowState.get_zestimate.properties.principal[0].address[0].street[0]}</td>
+                  <td>{zillowState.get_zestimate.properties.principal[0].address[0].city[0]}</td>
+                  <td>{zillowState.get_zestimate.properties.principal[0].address[0].state[0]}</td>
+                  <td>{zillowState.get_zestimate.properties.principal[0].address[0].zipcode[0]}</td>
                 </tr>
               </tbody>
             </Table>
@@ -69,8 +65,7 @@ export default class GetComps extends React.Component {
               <li>
                 <a
                   href={
-                    zillowState.get_zestimate.properties.principal[0].links[0]
-                      .comparables[0]
+                    zillowState.get_zestimate.properties.principal[0].links[0].comparables[0]
                   }>
                   Comps
                 </a>
@@ -78,8 +73,7 @@ export default class GetComps extends React.Component {
               <li>
                 <a
                   href={
-                    zillowState.get_zestimate.properties.principal[0].links[0]
-                      .graphsanddata[0]
+                    zillowState.get_zestimate.properties.principal[0].links[0].graphsanddata[0]
                   }>
                   Graphs and Data
                 </a>
@@ -87,8 +81,7 @@ export default class GetComps extends React.Component {
               <li>
                 <a
                   href={
-                    zillowState.get_zestimate.properties.principal[0].links[0]
-                      .homedetails[0]
+                    zillowState.get_zestimate.properties.principal[0].links[0].homedetails[0]
                   }>
                   Home Details
                 </a>
@@ -96,8 +89,7 @@ export default class GetComps extends React.Component {
               <li>
                 <a
                   href={
-                    zillowState.get_zestimate.properties.principal[0].links[0]
-                      .mapthishome[0]
+                    zillowState.get_zestimate.properties.principal[0].links[0].mapthishome[0]
                   }>
                   Map
                 </a>
@@ -135,7 +127,7 @@ export default class GetComps extends React.Component {
                   <td>
                     {
                       zillowState.get_zestimate.properties.principal[0]
-                        .zestimate[0]['last-updated'][0]
+                      .zestimate[0]['last-updated'][0]
                     }
                   </td>
                   <td>

@@ -36,21 +36,21 @@ export default class PropertySearchForm extends React.Component {
     this.onInputChange = this.onInputChange.bind(this);
     this.validate = this.validate.bind(this);
     this.clear = this.clear.bind(this);
-    this.propertyAdd = this.propertyAdd.bind(this);
-    this.propertyEdit = this.propertyEdit.bind(this);
-    this.propertyDelete = this.propertyDelete.bind(this);
+    this.handlePropertyAdd = this.handlePropertyAdd.bind(this);
   }
 
-  propertyAdd = (evt) => {
-
-  }
-
-  propertyEdit = (evt) => {
-
-  }
-
-  propertyDelete = (evt) => {
-
+  handlePropertyAdd = () => {
+    const property = {
+      zpid: this.state.propertyZPID,
+      address: this.state.propertyAddress,
+      city: this.state.propertyCity,
+      state: this.state.propertyState,
+      zip: this.state.propertyZip,
+      description: '<description placeholder>',
+      image: '<image placeholder>',
+    }
+    this.props.propertyAdd(property);
+    this.clear();
   }
 
   onFormSubmit = (evt) => {
@@ -70,18 +70,20 @@ export default class PropertySearchForm extends React.Component {
     .catch(err => console.log(err));
 
     data.then(res => {
-      console.log(res.data.response.results.result[0]);
       let result = res.data.response.results.result[0]
+      let addressInfo = result.address[0];
+      let zestimateInfo = result.zestimate[0];
 
       this.setState({
-        propertyAddress: result.address[0].street[0],
-        propertyCity: result.address[0].city[0],
-        propertyState: result.address[0].state[0],
-        propertyZip: result.address[0].zipcode[0],
-        propertyAmount: result.zestimate[0].amount[0]._,
-        propertyLastUpdated: result.zestimate[0]["last-updated"][0],
-        propertyValueChanged: result.zestimate[0].valueChange[0]._,
-        propertyValueChangeDuration: result.zestimate[0].valueChange[0]['$'].duration,
+        propertyZPID: result.zpid[0],
+        propertyAddress: addressInfo.street[0],
+        propertyCity: addressInfo.city[0],
+        propertyState: addressInfo.state[0],
+        propertyZip: addressInfo.zipcode[0],
+        propertyAmount: zestimateInfo.amount[0]._,
+        propertyLastUpdated: zestimateInfo["last-updated"][0],
+        propertyValueChanged: zestimateInfo.valueChange[0]._,
+        propertyValueChangeDuration: zestimateInfo.valueChange[0]['$'].duration,
         fields: {
           address: '',
           city: '',
@@ -171,46 +173,41 @@ export default class PropertySearchForm extends React.Component {
                 {/* <Card.Img variant="top" src={`./images/${this.props.image}`} style={{ height: '200px' }} /> */}
                 <Card.Body>
                   <Card.Title>Property Information</Card.Title>
-                    <ul>
-                      <li>
-                      Address: {this.state.propertyAddress}, {this.state.propertyCity}, {this.state.propertyState} {this.state.propertyZip}
-                      </li>
-                      <li>
-                        Value Estimate: {
-                            (Number(this.state.propertyAmount))
-                            .toLocaleString('en-US', {
-                                style: 'currency',
-                                currency: 'USD',
-                              })
-                            }
-                      </li>
-                      <li>
-                        Value Last Updated: {this.state.propertyLastUpdated} days ago
-                      </li>
-                      <li>
-                        Value Change: {
-                            (Number(this.state.propertyValueChanged))
-                            .toLocaleString('en-US', {
-                                style: 'currency',
-                                currency: 'USD',
-                              })
-                            }
-                      </li>
-                      <li>
-                        Value Change Period: {this.state.propertyValueChangeDuration} days
-                      </li>
-                    </ul>
+                  <ul>
+                    <li>
+                    Address: {
+                      `${this.state.propertyAddress},
+                      ${this.state.propertyCity}, ${this.state.propertyState} ${this.state.propertyZip}`
+                    }
+                    </li>
+                    <li>
+                      Value Estimate: {
+                          (Number(this.state.propertyAmount))
+                          .toLocaleString('en-US', {
+                              style: 'currency',
+                              currency: 'USD',
+                            })
+                          }
+                    </li>
+                    <li>
+                      Value Last Updated: {this.state.propertyLastUpdated} days ago
+                    </li>
+                    <li>
+                      Value Change: {
+                          (Number(this.state.propertyValueChanged))
+                          .toLocaleString('en-US', {
+                              style: 'currency',
+                              currency: 'USD',
+                            })
+                          }
+                    </li>
+                    <li>
+                      Value Change Period: {this.state.propertyValueChangeDuration} days
+                    </li>
+                  </ul>
 
-                  <Card.Text>
-
-                  </Card.Text>
-                  <Button variant="primary" style={{ margin: '10px' }}>
+                  <Button variant="primary" style={{ margin: '10px' }} onClick={this.handlePropertyAdd}>
                     Add to Portfolio
-                    {/*
-                    <Link to={{ pathname: `/properties/${ this.props.zpid }`}} style={{ color: 'white' }}>
-                      { this.props.address }
-                    </Link>
-                    */}
                   </Button>
                   <Button variant="primary" style={{ margin: '10px' }} onClick={this.clear} >
                     Clear

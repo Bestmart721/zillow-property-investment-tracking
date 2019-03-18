@@ -23,8 +23,16 @@ describe('PropertySearchForm', () => {
     expect(wrapper.state().fieldErrors).toEqual({});
   });
 
-  it('initializes `property` to an empty string', () => {
-    expect(wrapper.state().property).toEqual('');
+  it('initializes property information to empty strings', () => {
+    expect(wrapper.state().propertyZPID).toEqual('');
+    expect(wrapper.state().propertyAddress).toEqual('');
+    expect(wrapper.state().propertyCity).toEqual('');
+    expect(wrapper.state().propertyState).toEqual('');
+    expect(wrapper.state().propertyZip).toEqual('');
+    expect(wrapper.state().propertyAmount).toEqual('');
+    expect(wrapper.state().propertyLastUpdated).toEqual('');
+    expect(wrapper.state().propertyValueChanged).toEqual('');
+    expect(wrapper.state().propertyValueChangeDuration).toEqual('');
   });
 
   it('initializes `_loading` to false', () => {
@@ -40,6 +48,5 @@ describe('PropertySearchForm', () => {
     expect(wrapper.find('h1')).toBeDefined();
     expect(wrapper.text().includes('Get Property Zestimate')).toBe(true);
   });
-
 
 });
