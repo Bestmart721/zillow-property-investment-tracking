@@ -63,6 +63,29 @@ export default class PropertyForm extends React.Component {
       });
     };
 
+    onInputChange = ({ name, value, error }) => {
+        const fields = this.state.fields;
+        const fieldErrors = this.state.fieldErrors;
+
+        fields[name] = value;
+        fieldErrors[name] = error;
+
+        this.setState({ fields, fieldErrors });
+      };
+
+    validate = () => {
+        const property = this.state.fields;
+        const fieldErrors = this.state.fieldErrors;
+        const errMessages = Object.keys(fieldErrors).filter((k) => fieldErrors[k]);
+
+        if (!property.address) return true;
+        if (!property.city) return true;
+        if (!property.state || property.state.length !== 2) return true;
+        if (errMessages.length) return true;
+
+        return false;
+      };
+
     render() {
       const submitText = this.props.id ? 'Update' : 'Create';
       return (
@@ -72,6 +95,7 @@ export default class PropertyForm extends React.Component {
               <div className='field'>
                 <label>ZPID</label>
                 <input
+                  id='zpid-input'
                   type='text'
                   value={this.state.zpid}
                   onChange={this.handleZPIDChange}
@@ -80,6 +104,7 @@ export default class PropertyForm extends React.Component {
               <div className='field'>
                 <label>Address</label>
                 <input
+                  id='address-input'
                   type='text'
                   value={this.state.address}
                   onChange={this.handleAddressChange}
@@ -88,6 +113,7 @@ export default class PropertyForm extends React.Component {
               <div className='field'>
                 <label>City</label>
                 <input
+                  id='city-input'
                   type='text'
                   value={this.state.city}
                   onChange={this.handleCityChange}
@@ -97,6 +123,7 @@ export default class PropertyForm extends React.Component {
               <div className='field'>
                 <label>State</label>
                 <input
+                  id='state-input'
                   type='text'
                   value={this.state.state}
                   onChange={this.handleStateChange}
@@ -106,6 +133,7 @@ export default class PropertyForm extends React.Component {
               <div className='field'>
                 <label>Zip</label>
                 <input
+                  id='zip-input'
                   type='text'
                   value={this.state.zip}
                   onChange={this.handleZipChange}
@@ -115,6 +143,7 @@ export default class PropertyForm extends React.Component {
               <div className='field'>
                 <label>Description</label>
                 <input
+                  id='description-input'
                   type='text'
                   value={this.state.description}
                   onChange={this.handleDescriptionChange}
@@ -124,6 +153,7 @@ export default class PropertyForm extends React.Component {
               <div className='field'>
                 <label>Image</label>
                 <input
+                  id='image-input'
                   type='text'
                   value={this.state.image}
                   onChange={this.handleImageChange}

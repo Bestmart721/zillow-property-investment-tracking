@@ -18,7 +18,7 @@ describe('EditablePropertyCard', () => {
     expect(wrapper.state().editFormOpen).toEqual(false);
   });
 
-  it('contains three PropertyCard components', () => {
+  it('contains PropertyCard components', () => {
     expect(wrapper.find('PropertyCard')).toBeDefined();
     //expect(wrapper.find(PropertyCard)).toHaveLength(3);
   });
