@@ -2,7 +2,7 @@ import React from 'react';
 
 import Field from './FormField';
 import Client from '../client.js';
-import { Card, Button, Col, Table } from 'react-bootstrap';
+import { Card, Button, Col } from 'react-bootstrap';
 
 const content = document.createElement('div');
 document.body.appendChild(content);
@@ -46,8 +46,8 @@ export default class PropertySearchForm extends React.Component {
       city: this.state.propertyCity,
       state: this.state.propertyState,
       zip: this.state.propertyZip,
-      description: '<description placeholder>',
-      image: '<image placeholder>',
+      description: 'description placeholder',
+      image: 'image placeholder',
     }
     this.props.propertyAdd(property);
     this.clear();

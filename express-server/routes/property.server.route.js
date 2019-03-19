@@ -7,5 +7,8 @@ import * as propertyController from '../controllers/property.server.controller';
 const router = express.Router();
 
 router.get('/properties', propertyController.getProperties);
+router.post('/properties', propertyController.createProperty);
+router.put('/properties', propertyController.updateProperty);
+router.delete('/properties', propertyController.deleteProperty);
 
 export default router;

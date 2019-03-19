@@ -1,10 +1,8 @@
 import React from "react";
-import { Link } from 'react-router-dom';
-import { Card, Button, Container, Row, Col } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import Client from '../client.js';
 import PropertySearchForm from './PropertySearchForm';
 import EditablePropertyCard from './EditablePropertyCard';
-
 import "./App.css";
 
 export default class App extends React.Component {
@@ -48,6 +46,7 @@ export default class App extends React.Component {
     this.setState({
       properties: this.state.properties.concat(property),
     });
+    this.client.createProperty(property);
   };
 
   updateProperty = (attrs) => {
@@ -68,12 +67,14 @@ export default class App extends React.Component {
         }
       }),
     });
+    this.client.updateProperty(attrs);
   };
 
   deleteProperty = (propertyId) => {
     this.setState({
       properties: this.state.properties.filter(t => t.zpid !== propertyId),
     });
+    this.client.deleteProperty(propertyId);
   };
 
   render() {
@@ -81,9 +82,9 @@ export default class App extends React.Component {
       return <img alt='loading' src='./images/loading.gif' />;
     }
 
-    const properties = this.state.properties.map((property) => (
+    const properties = this.state.properties.map((property, i) => (
       <EditablePropertyCard
-        key={ property.zpid }
+        key={ i }
         address={ property.address }
         city={ property.city }
         state={ property.state }

@@ -14,7 +14,7 @@ import propertyRoutes from './routes/property.server.route';
 const app = express();
 
 // express-busboy to parse multipart/form-data
-bb.extend(app);
+//bb.extend(app);
 
 // allow-cors
 app.use(function(req, res,next){
@@ -25,25 +25,28 @@ app.use(function(req, res,next){
 
 // configure app
 app.use(logger('dev'));
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended:true }));
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // set the port
 const port = process.env.PORT || 3001;
 
+/*
 app.use((req, res, next) => {
   res.setHeader('Cache-Control', 'no-cache, no-store, must-revalidate');
   res.setHeader('Pragma', 'no-cache');
   res.setHeader('Expires', '0');
   next();
 });
+*/
 
 // add Source Map Support
-SourceMapSupport.install();
+//SourceMapSupport.install();
 
-app.use('/api', zillowRoutes);
 app.use('/api', propertyRoutes);
+app.use('/api', zillowRoutes);
+
 
 /*
 app.get('/', (req,res) => {

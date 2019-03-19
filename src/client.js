@@ -39,14 +39,13 @@ export default class Client extends React.Component {
     deleteProperty(data) {
         return fetch('/api/properties', {
             method: 'delete',
-            body: JSON.stringify(data),
+            body: JSON.stringify({ zpid: data }),
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
             },
         }).then(this.checkStatus);
     }
-
 
     checkStatus(response) {
         if (response.status >= 200 && response.status < 300) {
@@ -63,5 +62,4 @@ export default class Client extends React.Component {
     parseJSON(response) {
         return response.json();
     }
-
 };
