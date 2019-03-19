@@ -1,8 +1,21 @@
-import React from "react";
+import React from 'react';
 import PropertyForm from './PropertyForm';
 import PropertyCard from './PropertyCard';
+import PropTypes from 'prop-types';
 
 export default class EditablePropertyCard extends React.Component {
+    static propTypes = {
+      address: PropTypes.string.isRequired,
+      city: PropTypes.string.isRequired,
+      state: PropTypes.string.isRequired,
+      zip: PropTypes.string.isRequired,
+      image: PropTypes.string,
+      zpid: PropTypes.string.isRequired,
+      description: PropTypes.string,
+      onTrashClick: PropTypes.func.isRequired,
+      onFormSubmit: PropTypes.func.isRequired,
+    }
+
     constructor(props) {
       super(props);
       this.state = {

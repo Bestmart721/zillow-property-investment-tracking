@@ -1,6 +1,20 @@
-import React from "react";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class PropertyForm extends React.Component {
+    static propTypes = {
+      id: PropTypes.string.isRequired,
+      address: PropTypes.string.isRequired,
+      city: PropTypes.string.isRequired,
+      state: PropTypes.string.isRequired,
+      zip: PropTypes.string.isRequired,
+      image: PropTypes.string,
+      zpid: PropTypes.string.isRequired,
+      description: PropTypes.string,
+      onTrashClick: PropTypes.func.isRequired,
+      onFormSubmit: PropTypes.func.isRequired,
+    }
+
     constructor(props) {
       super(props);
       this.state = {

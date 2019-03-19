@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 import { Container, Row } from 'react-bootstrap';
 import Client from '../client.js';
 import PropertySearchForm from './PropertySearchForm';
 import EditablePropertyCard from './EditablePropertyCard';
-import "./App.css";
+import './App.css';
 
 export default class App extends React.Component {
   constructor(props) {

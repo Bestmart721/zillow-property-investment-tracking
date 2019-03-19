@@ -1,6 +1,6 @@
 [
     {
-        "zpid": 248011825,
+        "zpid": "248011825",
         "address": "12610 SE 110th Ct",
         "city": "Happy Valley",
         "state": "OR",
@@ -9,7 +9,7 @@
         "image": "home1.jpg"
     },
     {
-        "zpid": 248011795,
+        "zpid": "248011795",
         "address": "12706 SE 110th Ct",
         "city": "Happy Valley",
         "state": "OR",
@@ -18,7 +18,7 @@
         "image": "home2.jpg"
     },
     {
-        "zpid": 248011788,
+        "zpid": "248011788",
         "address": "12740 SE 110th Ct",
         "city": "Happy Valley",
         "state": "OR",
@@ -27,7 +27,7 @@
         "image": "home3.jpg"
     },
     {
-        "zpid": 248011766,
+        "zpid": "248011766",
         "address": "12021 SE 104th Ct",
         "city": "Happy Valley",
         "state": "OR",

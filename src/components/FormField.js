@@ -3,6 +3,7 @@ import React from 'react';
 
 export default class FormField extends React.Component {
   static propTypes = {
+    id: PropTypes.string.isRequired,
     placeholder: PropTypes.string,
     name: PropTypes.string.isRequired,
     value: PropTypes.string,

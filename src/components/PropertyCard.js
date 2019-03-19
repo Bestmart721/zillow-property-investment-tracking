@@ -1,8 +1,21 @@
-import React from "react";
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, Button, Col } from 'react-bootstrap';
+import PropTypes from 'prop-types';
 
 export default class PropertyCard extends React.Component {
+    static propTypes = {
+      address: PropTypes.string.isRequired,
+      city: PropTypes.string.isRequired,
+      state: PropTypes.string.isRequired,
+      zip: PropTypes.string.isRequired,
+      image: PropTypes.string,
+      zpid: PropTypes.string.isRequired,
+      description: PropTypes.string,
+      onTrashClick: PropTypes.func.isRequired,
+      onEditClick: PropTypes.func.isRequired,
+    }
+
     handleTrashClick = () => {
       this.props.onTrashClick(this.props.zpid);
     };
