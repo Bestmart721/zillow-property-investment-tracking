@@ -22,7 +22,11 @@ const App = () => (
 
     <div>
       <main>
+        {/*
+        <Route exact path="/" component={Login} />
+        */}
         <Route exact path="/" component={Home} />
+
         <Route exact path="/properties/:id" component={Property} />
         <Route exact path="/properties/get-search-results/:query" component={GetSearchResults} />
         <Route exact path="/properties/:id/get-updated-property-details" component={GetUpdatedPropertyDetails} />
